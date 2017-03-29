@@ -1,36 +1,21 @@
 import React, {Component} from 'react'
 import {
-    AppRegistry,
+    AppRegistry, Button,
     StyleSheet,
     Text,
-    View, WebView
+    View,
+    WebView
 } from 'react-native';
 
-export default class App extends Component {
-    render() {
-        return (
-            <WebView
-                source={{uri: 'http://www.yuanjingtech.com'}}
-                style={{flex: 1}}
-            />
-        );
-    }
-}
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
+import {
+    StackNavigator,
+} from 'react-navigation';
+import {MainScreen} from "../containers/MainScreen";
+import {MoreScreen} from "../containers/MoreScreen";
+
+export const App = StackNavigator({
+    Main: {screen: MainScreen},
+    More: {screen: MoreScreen},
 });
+export default App;
+
