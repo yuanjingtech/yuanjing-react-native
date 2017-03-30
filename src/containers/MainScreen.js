@@ -13,15 +13,15 @@ export class MainScreen extends Component {
     };
 
     render() {
-        const {navigate} = this.props.navigation;
+        // const {navigate} = this.props.navigation;
         return (
             <View style={{flex: 1, flexDirection: 'column'}}>
-                <Button
-                    title="更多"
-                    onPress={() =>
-                        navigate('More', {name: 'Jane'})
-                    }
-                />
+                {/*<Button*/}
+                    {/*title="更多"*/}
+                    {/*onPress={() =>*/}
+                        {/*/!*navigate('More', {name: 'Jane'})*!/*/}
+                    {/*}*/}
+                {/*/>*/}
                 <WebView
                     source={{uri: 'http://www.yuanjingtech.com'}}
                     style={{flex: 1}}
