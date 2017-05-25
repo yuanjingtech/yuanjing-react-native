@@ -10,6 +10,8 @@ import {
 import {
     StackNavigator,
 } from 'react-navigation';
+import {MyWebView} from "../components/MyWebView";
+import {HomeScreen} from "./HomeScreen";
 var ScrollableTabView = require('react-native-scrollable-tab-view');
 
 import {MainScreen} from "../containers/MainScreen";
@@ -26,11 +28,17 @@ export class App extends Component {
             <ScrollableTabView
                 tabBarPosition="bottom"
             >
+                <HomeScreenStack tabLabel="首页"/>
                 <MainScreen tabLabel="远景"/>
                 <MoreScreen tabLabel="更多"/>
             </ScrollableTabView>
         );
     }
 }
+
+const HomeScreenStack = StackNavigator({
+    Main: {screen: HomeScreen},
+    MyWebView: {screen: MyWebView},
+});
 export default App;
 
