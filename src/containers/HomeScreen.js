@@ -8,9 +8,6 @@ import {
     WebView
 } from 'react-native';
 import {Icon, Card, Button} from 'react-native-material-design';
-import {
-    StackNavigator,
-} from 'react-navigation';
 import {MyWebView} from "../components/MyWebView";
 
 type TApp = {
