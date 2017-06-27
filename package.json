@@ -4,12 +4,16 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"ios": "react-native run-ios",
+		"android": "react-native run-android",
+		"macos": "react-native-macos run-macos",
 		"test": "jest"
 	},
 	"dependencies": {
 		"install": "^0.10.1",
 		"react": "~15.4.1",
 		"react-native": "0.42.3",
+		"react-native-macos": "0.14.1",
 		"react-native-material-design": "^0.3.7",
 		"react-native-scrollable-tab-view": "^0.6.3",
 		"react-native-vector-icons": "^4.1.1",
@@ -22,6 +26,6 @@
 		"react-test-renderer": "~15.4.1"
 	},
 	"jest": {
-		"preset": "react-native"
+		"preset": "react-native-macos"
 	}
 }
