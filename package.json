@@ -11,9 +11,9 @@
 	},
 	"dependencies": {
 		"install": "^0.10.1",
-		"react": "16.0.0-alpha.12",
-		"react-native": "0.42.3",
-		"react-native-macos": "0.14.1",
+		"react": "^15.6.1",
+		"react-native": "^0.45.1",
+		"react-native-macos": "^0.14.1",
 		"react-native-material-design": "^0.3.7",
 		"react-native-scrollable-tab-view": "^0.6.3",
 		"react-native-vector-icons": "^4.1.1",
