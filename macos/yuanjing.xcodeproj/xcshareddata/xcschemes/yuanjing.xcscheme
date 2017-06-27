@@ -30,8 +30,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
                BuildableName = "init.app"
-               BlueprintName = "init"
-               ReferencedContainer = "container:init.xcodeproj">
+               BlueprintName = "yuanjing"
+               ReferencedContainer = "container:yuanjing.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "initTests.xctest"
-               BlueprintName = "initTests"
-               ReferencedContainer = "container:init.xcodeproj">
+               BuildableName = "yuanjingTests.xctest"
+               BlueprintName = "yuanjingTests"
+               ReferencedContainer = "container:yuanjing.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "initTests.xctest"
-               BlueprintName = "initTests"
-               ReferencedContainer = "container:init.xcodeproj">
+               BuildableName = "yuanjingTests.xctest"
+               BlueprintName = "yuanjingTests"
+               ReferencedContainer = "container:yuanjing.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -72,8 +72,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "init.app"
-            BlueprintName = "init"
-            ReferencedContainer = "container:init.xcodeproj">
+            BlueprintName = "yuanjing"
+            ReferencedContainer = "container:yuanjing.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -95,8 +95,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "init.app"
-            BlueprintName = "init"
-            ReferencedContainer = "container:init.xcodeproj">
+            BlueprintName = "yuanjing"
+            ReferencedContainer = "container:yuanjing.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -114,8 +114,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "init.app"
-            BlueprintName = "init"
-            ReferencedContainer = "container:init.xcodeproj">
+            BlueprintName = "yuanjing"
+            ReferencedContainer = "container:yuanjing.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
