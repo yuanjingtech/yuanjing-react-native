@@ -1322,6 +1322,13 @@ appcenter-link-scripts@2.2.0:
     which "^1.2.11"
     xcode "^2.0.0"
 
+appcenter-push@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.npm.taobao.org/appcenter-push/download/appcenter-push-2.2.0.tgz#6bd13fd040cd45e912a941a651b0d28381b67477"
+  integrity sha1-a9E/0EDNRekSqUGmUbDSg4G2dHc=
+  dependencies:
+    appcenter "2.2.0"
+
 appcenter@2.2.0:
   version "2.2.0"
   resolved "https://registry.npm.taobao.org/appcenter/download/appcenter-2.2.0.tgz#77d2c8d486bda52d1ee43156607437981aba2105"

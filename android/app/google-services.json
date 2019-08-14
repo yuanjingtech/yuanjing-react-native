@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "927762087277",
+    "firebase_url": "https://igneous-impulse-241906.firebaseio.com",
+    "project_id": "igneous-impulse-241906",
+    "storage_bucket": "igneous-impulse-241906.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927762087277:android:854545c50b2a2d74",
+        "android_client_info": {
+          "package_name": "com.yuanjingtech.yuanjing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "927762087277-45rq4dhohmd37osqn6t8m7l2dio3fr4v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-hVrMeUVL_A3CksU-JvkWRACc1mQNQtg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "927762087277-45rq4dhohmd37osqn6t8m7l2dio3fr4v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
