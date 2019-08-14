@@ -11,5 +11,11 @@ module.exports = {
                 ios: null,
             },
         },
+        'react-native-code-push': {
+            platforms: {
+                android: null,
+                ios: null,
+            },
+        },
     },
 };

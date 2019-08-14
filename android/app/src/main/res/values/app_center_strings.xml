@@ -1,0 +1,5 @@
+<resources>
+    <string name="appCenterCrashes_whenToSendCrashes" moduleConfig="true" translatable="false">ASK_JAVASCRIPT</string>
+    <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
+    <string name="appCenterCodePushDevelopmentKey" translatable="false">2HokGYB6O-hBDIQUhHyKJQxVEX_JwTg7CBz8N</string>
+</resources>

@@ -6,7 +6,7 @@ import ScrollableTabView from "react-native-scrollable-tab-view";
 import {MyWebView} from "./components/MyWebView";
 // import Conversation from "./containers/Conversation";
 import LoginScreen from "./containers/LoginScreen";
-
+import codePush from "react-native-code-push";
 export class App extends Component {
     render() {
         return (
@@ -38,6 +38,6 @@ const AppNavigator = createStackNavigator({
         initialRouteName: 'Main', // 默认登录页
     }
 );
-
-export default createAppContainer(AppNavigator);
+let codePushOptions = {checkFrequency: codePush.CheckFrequency.ON_APP_RESUME};
+export default codePush(codePushOptions)(createAppContainer(AppNavigator));
 

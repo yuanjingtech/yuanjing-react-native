@@ -1,3 +1,5 @@
 rootProject.name = 'yuanjing'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
+include ':react-native-code-push'
+project(':react-native-code-push').projectDir = new File('../node_modules/react-native-code-push/android/app')
