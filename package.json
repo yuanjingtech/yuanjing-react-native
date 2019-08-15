@@ -6,8 +6,10 @@
     "start": "react-native start",
     "ios": "react-native run-ios",
     "ios:release": "react-native run-ios --configuration Release",
+    "ios:codepush": "appcenter codepush release-react -a liubin19851208/yuanjing -d Staging",
     "android": "react-native run-android",
     "android:release": "react-native run-android --variant=release",
+    "android:codepush": "appcenter codepush release-react -a liubin19851208/yuanjing-1 -d Staging",
     "test": "jest",
     "lint": "eslint ."
   },
