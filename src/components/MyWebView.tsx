@@ -1,15 +1,29 @@
-import React from 'react'
-import {StyleSheet} from 'react-native';
+import React, {useEffect, useRef} from 'react'
+import {BackHandler, StyleSheet} from 'react-native';
 import {useNavigation, useNavigationParam} from "react-navigation-hooks";
 import {WebView} from 'react-native-webview';
-import {NavigationState} from "react-navigation";
 import {WebViewNavigation} from "react-native-webview/lib/WebViewTypes";
 
 export const MyWebView = () => {
     const navigation = useNavigation();
     const uri = useNavigationParam("uri");
+    const webViewElement = useRef(null);
+    const backHandler = () => {
+        return (webViewElement.current as unknown as WebView).goBack();
+    };
+    useEffect(() => {
+        const run = async () => {
+            BackHandler.addEventListener('hardwareBackPress', backHandler);
+        };
+        // noinspection JSIgnoredPromiseFromCall
+        run();
+        return () => {
+            BackHandler.removeEventListener('hardwareBackPress', backHandler);
+        }
+    }, []);
     return (
         <WebView
+            ref={webViewElement}
             source={{uri: uri}}
             onNavigationStateChange={(navState: WebViewNavigation) => {
                 if (navState.title) {
