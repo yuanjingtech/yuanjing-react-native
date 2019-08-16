@@ -9,6 +9,7 @@ import {MyWebView} from "./components/MyWebView";
 import LoginScreen from "./containers/LoginScreen";
 import codePush from "react-native-code-push";
 import {Alert, AppState} from "react-native";
+import {Icon} from "react-native-material-ui";
 export class App extends Component {
     render() {
         return (
@@ -26,10 +27,28 @@ export class App extends Component {
 let tabConfig = {
     Home: HomeScreen,
     // Chat: Conversation,
-    Main: MainScreen,
+    More: MainScreen,
 };
 const TabNavigator = createBottomTabNavigator(tabConfig, {
-    initialRouteName: "Home"
+    initialRouteName: "Home",
+    defaultNavigationOptions: ({navigation}) => ({
+        tabBarIcon: ({focused, horizontal, tintColor}) => {
+            const {routeName} = navigation.state;
+            let iconName = "question";
+            if (routeName === 'Home') {
+                iconName = `home`;
+            } else if (routeName === 'More') {
+                iconName = `star-o`;
+            }
+
+            // You can return any component that you like here!
+            return <Icon name={iconName} size={25} color={tintColor || "gray"}/>;
+        },
+    }),
+    tabBarOptions: {
+        activeTintColor: 'blue',
+        inactiveTintColor: 'gray',
+    },
 });
 TabNavigator.navigationOptions = () => ({headerLeft: null});
 
@@ -39,7 +58,7 @@ const AppNavigator = createStackNavigator({
         MyWebView: {screen: MyWebView},
     },
     {
-        initialRouteName: 'Main', // 默认登录页
+        initialRouteName: 'Main', // 默认登录页,
     }
 );
 //

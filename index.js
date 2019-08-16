@@ -8,10 +8,21 @@ import {name as appName} from './app.json';
 import React, {Component} from 'react';
 // import {app_init as im_init} from "./src/modules/im";
 // import {wechat_app_init} from "./src/modules/wechat";
+import {COLOR, ThemeContext, getTheme} from 'react-native-material-ui';
 
 type P = {}
 type S = {}
-
+const uiTheme = {
+    palette: {
+        primaryColor: COLOR.green500,
+    },
+    toolbar: {
+        container: {
+            height: 50,
+        },
+    },
+    iconSet: 'FontAwesome',
+};
 class Index extends Component<P, S> {
     constructor(props) {
         super(props);
@@ -21,7 +32,9 @@ class Index extends Component<P, S> {
 
     render() {
         return (
-            <App></App>
+            <ThemeContext.Provider value={getTheme(uiTheme)}>
+                <App></App>
+            </ThemeContext.Provider>
         );
     }
 }

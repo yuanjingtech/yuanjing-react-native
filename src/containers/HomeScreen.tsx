@@ -19,11 +19,11 @@ const AppItem = (props: Props) => {
     const {name, uri, icon_name} = props.data;
     return (
         <TouchableOpacity
-            style={{padding: 15}}
+            style={styles.item}
             onPress={() => {
                 navigate('MyWebView', {name: name, uri: uri}, {title: name});
             }}>
-            <Icon name={icon_name || 'extension'} color=""/>
+            <Icon name={icon_name || 'plug'} color=""/>
             <Text>{name}</Text>
         </TouchableOpacity>
     );
@@ -39,28 +39,34 @@ export const HomeScreen = () => {
             {
                 name: '笑话',
                 uri: 'http://joke.yuanjingtech.com',
+                icon_name: "smile-o"
             },
             {
                 name: '远景',
                 uri: 'http://www.yuanjingtech.com',
+                icon_name: 'star-o'
             },
             {
                 name: '导航',
-                uri: 'http://daohang.binbinsoft.com/'
+                uri: 'http://daohang.binbinsoft.com/',
+                icon_name: 'internet-explorer'
             },
             {
                 name: '优惠',
-                uri: 'http://youhui.yuanjingtech.com/'
+                uri: 'http://youhui.yuanjingtech.com/',
+                icon_name: "tags"
             },
             {
                 name: "更多",
-                uri: "http://www.yuanjingtech.com/more.html"
-            }
+                uri: "http://www.yuanjingtech.com/more.html",
+                icon_name: "bars"
+            },
         ]
     });
     return (
-        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
-            {apps.map((v: TApp) => <AppItem key={`${v.name}`} data={{name: v.name, uri: v.uri, icon_name: v.icon_name}}/>)}
+        <View style={styles.container}>
+            {apps.map((v: TApp) => <AppItem key={`${v}`} data={{name: v.name, uri: v.uri, icon_name: v.icon_name}}/>)}
+            <View style={{flex: 1}}></View>
         </View>
     );
 };
@@ -69,18 +75,17 @@ export const HomeScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        alignItems: 'center'
+    },
+    item: {
+        margin: 5,
+        width: 64,
+        height: 64,
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
+        alignItems: 'center'
+    }
 });
+
