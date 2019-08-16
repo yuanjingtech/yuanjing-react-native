@@ -28,7 +28,9 @@ let tabConfig = {
     // Chat: Conversation,
     Main: MainScreen,
 };
-const TabNavigator = createBottomTabNavigator(tabConfig);
+const TabNavigator = createBottomTabNavigator(tabConfig, {
+    initialRouteName: "Home"
+});
 TabNavigator.navigationOptions = () => ({headerLeft: null});
 
 const AppNavigator = createStackNavigator({
