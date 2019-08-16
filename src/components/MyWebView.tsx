@@ -34,8 +34,8 @@ export const MyWebView = () => {
                 }}>
             </WebView>
             <View style={styles.toolbar}>
-                <Button title={"back"} onPress={() => webViewElement.current.goBack()}/>
-                <Button title={"forward"} onPress={() => webViewElement.current.goForward()}/>
+                <Button title={"back"} onPress={() => (webViewElement.current as unknown as WebView).goBack()}/>
+                <Button title={"forward"} onPress={() => (webViewElement.current as unknown as WebView).goForward()}/>
             </View>
         </View>
     );
