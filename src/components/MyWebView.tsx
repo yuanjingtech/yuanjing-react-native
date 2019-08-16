@@ -1,8 +1,9 @@
 import React, {useEffect, useRef} from 'react'
-import {BackHandler, Button, StyleSheet, View} from 'react-native';
+import {BackHandler, StyleSheet, View} from 'react-native';
 import {useNavigation, useNavigationParam} from "react-navigation-hooks";
 import {WebView} from 'react-native-webview';
 import {WebViewNavigation} from "react-native-webview/lib/WebViewTypes";
+import Button from "./Button";
 
 export const MyWebView = () => {
     const navigation = useNavigation();
