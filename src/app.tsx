@@ -7,9 +7,10 @@ import ScrollableTabView from "react-native-scrollable-tab-view";
 import {MyWebView} from "./components/MyWebView";
 // import Conversation from "./containers/Conversation";
 import LoginScreen from "./containers/LoginScreen";
-import codePush from "react-native-code-push";
+import codePush, {CodePushOptions, DownloadProgress, SyncStatus} from "react-native-code-push";
 import {Alert, AppState} from "react-native";
 import {Icon} from "react-native-material-ui";
+import UpdateScreen from "./containers/UpdateScreen";
 export class App extends Component {
     render() {
         return (
@@ -28,6 +29,7 @@ let tabConfig = {
     Home: HomeScreen,
     // Chat: Conversation,
     More: MainScreen,
+    Update: UpdateScreen,
 };
 const TabNavigator = createBottomTabNavigator(tabConfig, {
     initialRouteName: "Home",
@@ -35,14 +37,18 @@ const TabNavigator = createBottomTabNavigator(tabConfig, {
         tabBarIcon: ({focused, horizontal, tintColor}) => {
             const {routeName} = navigation.state;
             let iconName = "question";
+            let iconSet = "FontAwesome";
             if (routeName === 'Home') {
                 iconName = `home`;
             } else if (routeName === 'More') {
                 iconName = `star-o`;
+            } else if (routeName === "Update") {
+                iconSet = "MaterialIcons";
+                iconName = "system-update"
             }
 
             // You can return any component that you like here!
-            return <Icon name={iconName} size={25} color={tintColor || "gray"}/>;
+            return <Icon iconSet={iconSet} name={iconName} size={25} color={tintColor || "gray"}/>;
         },
     }),
     tabBarOptions: {
@@ -89,6 +95,37 @@ const AppNavigator = createStackNavigator({
 //         }
 //     }
 // });
-let codePushOptions = {checkFrequency: codePush.CheckFrequency.ON_APP_RESUME};
-export default codePush(codePushOptions)(createAppContainer(AppNavigator));
+let navigationContainer = createAppContainer(AppNavigator);
+// @ts-ignore
+navigationContainer.codePushStatusDidChange = (status: SyncStatus) => {
+    switch (status) {
+        case codePush.SyncStatus.CHECKING_FOR_UPDATE:
+            console.log("Checking for updates.");
+            break;
+        case codePush.SyncStatus.DOWNLOADING_PACKAGE:
+            console.log("Downloading package.");
+            break;
+        case codePush.SyncStatus.INSTALLING_UPDATE:
+            console.log("Installing update.");
+            break;
+        case codePush.SyncStatus.UP_TO_DATE:
+            console.log("Up-to-date.");
+            break;
+        case codePush.SyncStatus.UPDATE_INSTALLED:
+            console.log("Update installed.");
+            break;
+    }
+};
+
+// @ts-ignore
+navigationContainer.codePushDownloadDidProgress = (progress: DownloadProgress) => {
+    console.log(progress.receivedBytes + " of " + progress.totalBytes + " received.");
+};
+
+// Interactive
+let codePushOptions: CodePushOptions = {updateDialog: {}, checkFrequency: codePush.CheckFrequency.ON_APP_RESUME, installMode: codePush.InstallMode.IMMEDIATE};
+
+// Silent sync everytime the app resumes
+// let codePushOptions = {checkFrequency: codePush.CheckFrequency.ON_APP_RESUME, installMode: codePush.InstallMode.ON_NEXT_RESUME};
+export default codePush(codePushOptions)(navigationContainer);
 
