@@ -123,7 +123,7 @@ navigationContainer.codePushDownloadDidProgress = (progress: DownloadProgress) =
 };
 
 // Interactive
-let codePushOptions: CodePushOptions = {updateDialog: {}, checkFrequency: codePush.CheckFrequency.ON_APP_RESUME, installMode: codePush.InstallMode.IMMEDIATE};
+let codePushOptions: CodePushOptions = {updateDialog: {}, checkFrequency: codePush.CheckFrequency.ON_APP_RESUME, installMode: codePush.InstallMode.ON_NEXT_RESTART};
 
 // Silent sync everytime the app resumes
 // let codePushOptions = {checkFrequency: codePush.CheckFrequency.ON_APP_RESUME, installMode: codePush.InstallMode.ON_NEXT_RESUME};

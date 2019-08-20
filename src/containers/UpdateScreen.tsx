@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, Text, Platform} from "react-native";
-import {Button, RadioButton} from "react-native-material-ui";
+import {Button, Checkbox, RadioButton} from "react-native-material-ui";
 import codePush from "react-native-code-push";
 
 function UpdateScreen() {
@@ -26,12 +26,13 @@ function UpdateScreen() {
             deploymentKey: key
         });
     };
+    // @ts-ignore
     return (
         <View style={styles.container}>
             <Text>Channel:{channel}</Text>
-            <RadioButton theme={"MaterialIcons"} label="Stable" checked={channel == "stable"} value="stable" onSelect={() => setChannel("stable")}/>
-            <RadioButton theme={"MaterialIcons"} label="Production" checked={channel == "production"} value="production" onSelect={() => setChannel("production")}/>
-            <Button text={"check update now"} onPress={checkUpdateNow}/>
+            <Checkbox label="Stable" checked={channel == "stable"} value="stable" onCheck={() => setChannel("stable")}/>
+            <Checkbox label="Production" checked={channel == "production"} value="production" onCheck={() => setChannel("production")}/>
+            <Button primary text={"check update now"} onPress={checkUpdateNow}/>
             <View style={{flex: 1}}></View>
         </View>
     );
