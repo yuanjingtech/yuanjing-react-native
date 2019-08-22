@@ -11,6 +11,7 @@ import codePush, {CodePushOptions, DownloadProgress, SyncStatus} from "react-nat
 import {Alert, AppState} from "react-native";
 import {Icon} from "react-native-material-ui";
 import UpdateScreen from "./containers/UpdateScreen";
+import DevelopScreen from "./containers/DevelopScreen";
 export class App extends Component {
     render() {
         return (
@@ -30,6 +31,7 @@ let tabConfig = {
     // Chat: Conversation,
     More: MainScreen,
     Update: UpdateScreen,
+    Develop: DevelopScreen,
 };
 const TabNavigator = createBottomTabNavigator(tabConfig, {
     initialRouteName: "Home",
@@ -38,13 +40,20 @@ const TabNavigator = createBottomTabNavigator(tabConfig, {
             const {routeName} = navigation.state;
             let iconName = "question";
             let iconSet = "FontAwesome";
-            if (routeName === 'Home') {
-                iconName = `home`;
-            } else if (routeName === 'More') {
-                iconName = `star-o`;
-            } else if (routeName === "Update") {
-                iconSet = "MaterialIcons";
-                iconName = "system-update"
+            switch (routeName) {
+                case 'Home':
+                    iconName = `home`;
+                    break;
+                case 'More':
+                    iconName = `star-o`;
+                    break;
+                case "Update":
+                    iconSet = "MaterialIcons";
+                    iconName = "system-update";
+                    break;
+                case "Develop":
+                    iconName = "tool";
+                    break;
             }
 
             // You can return any component that you like here!
