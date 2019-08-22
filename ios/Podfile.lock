@@ -119,6 +119,10 @@ PODS:
     - React
   - RNVectorIcons (6.6.0):
     - React
+  - rongcloud-react-native-imlib (0.3.3):
+    - React
+    - RongCloudIM/IMLib (~> 2.9.22)
+  - RongCloudIM/IMLib (2.9.22)
   - SSZipArchive (2.2.2)
   - yoga (0.60.4.React)
 
@@ -152,6 +156,7 @@ DEPENDENCIES:
   - React-RCTWebSocket (from `../node_modules/react-native/Libraries/WebSocket`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
+  - rongcloud-react-native-imlib (from `../node_modules/rongcloud-react-native-imlib`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -161,6 +166,7 @@ SPEC REPOS:
     - Base64
     - boost-for-react-native
     - JWT
+    - RongCloudIM
     - SSZipArchive
 
 EXTERNAL SOURCES:
@@ -222,6 +228,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
+  rongcloud-react-native-imlib:
+    :path: "../node_modules/rongcloud-react-native-imlib"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -260,6 +268,8 @@ SPEC CHECKSUMS:
   React-RCTWebSocket: 163873f4cdd5f1058a9483443404fc3801581cb6
   RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
+  rongcloud-react-native-imlib: e2899866e8cd0d15be51955675e6fa6a87eafd58
+  RongCloudIM: c1a917d3f109122fe8fdd96f2784d81847a0fa94
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   yoga: c2c050f6ae6e222534760cc82f559b89214b67e2
 

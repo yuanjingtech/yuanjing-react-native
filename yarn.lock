@@ -6307,10 +6307,10 @@ rimraf@~2.2.6:
   resolved "https://registry.npm.taobao.org/rimraf/download/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
 
-rongcloud-react-native-imlib@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.npm.taobao.org/rongcloud-react-native-imlib/download/rongcloud-react-native-imlib-0.3.2.tgz#6cced5952f2b4a46f3eddb1b894afda654f49dcb"
-  integrity sha1-bM7VlS8rSkbz7dsbiUr9plT0ncs=
+rongcloud-react-native-imlib@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.npm.taobao.org/rongcloud-react-native-imlib/download/rongcloud-react-native-imlib-0.3.3.tgz#2ba8bc76ba82fe3f371866dd74cb1907395f653e"
+  integrity sha1-K6i8drqC/j83GGbddMsZBzlfZT4=
 
 rsvp@^4.8.4:
   version "4.8.5"

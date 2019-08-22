@@ -29,7 +29,7 @@
     "react-native-webview": "^6.9.0",
     "react-navigation": "^3.11.1",
     "react-navigation-hooks": "^1.0.1",
-    "rongcloud-react-native-imlib": "^0.3.2"
+    "rongcloud-react-native-imlib": "^0.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
