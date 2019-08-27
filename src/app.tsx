@@ -12,6 +12,7 @@ import {Alert, AppState} from "react-native";
 import {Icon} from "react-native-material-ui";
 import UpdateScreen from "./containers/UpdateScreen";
 import DevelopScreen from "./containers/DevelopScreen";
+import Conversation from "./containers/Conversation";
 export class App extends Component {
     render() {
         return (
@@ -28,7 +29,7 @@ export class App extends Component {
 
 let tabConfig = {
     Home: HomeScreen,
-    // Chat: Conversation,
+    Chat: Conversation,
     More: MainScreen,
     Update: UpdateScreen,
     Develop: DevelopScreen,
@@ -54,6 +55,9 @@ const TabNavigator = createBottomTabNavigator(tabConfig, {
                 case "Develop":
                     iconName = "tool";
                     break;
+                case "Chat":
+                    iconSet = "MaterialIcons";
+                    iconName = "chat";
             }
 
             // You can return any component that you like here!

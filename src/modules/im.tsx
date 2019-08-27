@@ -1,5 +1,5 @@
-import {init} from "rongcloud-react-native-imlib";
-import {connect, ErrorCode} from "rongcloud-react-native-imlib";
+import {connect, init, ErrorCode} from "rongcloud-react-native-imlib";
+import {PermissionsAndroid} from "react-native";
 
 function onSuccess(userId: string) {
     console.log("连接成功：" + userId);
@@ -13,6 +13,10 @@ function onTokenIncorrect() {
     console.log("Token 不正确或已过期");
 }
 
+PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE).catch(() => {
+});
+PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION).catch(() => {
+});
 
 export function app_init() {
     init("8luwapkvu3bbl");

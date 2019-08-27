@@ -6,11 +6,6 @@ module.exports = {
                 android: null,
             },
         },
-        'rongcloud-react-native-imlib': {
-            platforms: {
-                android: null,
-            },
-        },
         'react-native-code-push': {
             platforms: {
                 android: null,
