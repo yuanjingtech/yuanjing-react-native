@@ -840,11 +840,6 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
-"@react-native-community/async-storage@^1.6.1":
-  version "1.6.1"
-  resolved "https://registry.npm.taobao.org/@react-native-community/async-storage/download/@react-native-community/async-storage-1.6.1.tgz#19be07fc1d65c77bdeb20f46108ba12076aad1c5"
-  integrity sha1-Gb4H/B1lx3vesg9GEIuhIHaq0cU=
-
 "@react-native-community/cli-platform-android@^2.0.1", "@react-native-community/cli-platform-android@^2.8.3":
   version "2.8.3"
   resolved "https://registry.npm.taobao.org/@react-native-community/cli-platform-android/download/@react-native-community/cli-platform-android-2.8.3.tgz#097237769d69400ceaf254a780d645bb8284acd6"
@@ -4948,6 +4943,11 @@ minizlib@^1.2.1:
   dependencies:
     minipass "^2.2.1"
 
+mitt@1.1.3:
+  version "1.1.3"
+  resolved "https://registry.npm.taobao.org/mitt/download/mitt-1.1.3.tgz#528c506238a05dce11cd914a741ea2cc332da9b8"
+  integrity sha1-UoxQYjigXc4RzZFKdB6izDMtqbg=
+
 mixin-deep@^1.2.0:
   version "1.3.2"
   resolved "https://registry.npm.taobao.org/mixin-deep/download/mixin-deep-1.3.2.tgz#1120b43dc359a785dce65b55b82e257ccf479566"
@@ -5751,6 +5751,15 @@ qs@~6.5.2:
   resolved "https://registry.npm.taobao.org/qs/download/qs-6.5.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fqs%2Fdownload%2Fqs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha1-yzroBuh0BERYTvFUzo7pjUA/PjY=
 
+query-string@6.8.1:
+  version "6.8.1"
+  resolved "https://registry.npm.taobao.org/query-string/download/query-string-6.8.1.tgz?cache=0&sync_timestamp=1567268249563&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fquery-string%2Fdownload%2Fquery-string-6.8.1.tgz#62c54a7ef37d01b538c8fd56f95740c81d438a26"
+  integrity sha1-YsVKfvN9AbU4yP1W+VdAyB1DiiY=
+  dependencies:
+    decode-uri-component "^0.2.0"
+    split-on-first "^1.0.0"
+    strict-uri-encode "^2.0.0"
+
 query-string@^6.4.2:
   version "6.8.2"
   resolved "https://registry.npm.taobao.org/query-string/download/query-string-6.8.2.tgz?cache=0&sync_timestamp=1564173124567&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fquery-string%2Fdownload%2Fquery-string-6.8.2.tgz#36cb7e452ae11a4b5e9efee83375e0954407b2f6"
@@ -6028,6 +6037,21 @@ react@16.8.6:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.13.6"
+
+reactotron-core-client@2.8.3:
+  version "2.8.3"
+  resolved "https://registry.npm.taobao.org/reactotron-core-client/download/reactotron-core-client-2.8.3.tgz#e8ce782f21ba3c04eb3c678297edceac283857ff"
+  integrity sha1-6M54LyG6PATrPGeCl+3OrCg4V/8=
+
+reactotron-react-native@^3.6.5:
+  version "3.6.5"
+  resolved "https://registry.npm.taobao.org/reactotron-react-native/download/reactotron-react-native-3.6.5.tgz#57f77daa26030759198903e85e06c9680e5e8d7f"
+  integrity sha1-V/d9qiYDB1kZiQPoXgbJaA5ejX8=
+  dependencies:
+    mitt "1.1.3"
+    query-string "6.8.1"
+    reactotron-core-client "2.8.3"
+    rn-host-detect "1.1.5"
 
 read-pkg-up@^2.0.0:
   version "2.0.0"
@@ -6311,6 +6335,11 @@ rimraf@~2.2.6:
   version "2.2.8"
   resolved "https://registry.npm.taobao.org/rimraf/download/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
+
+rn-host-detect@1.1.5:
+  version "1.1.5"
+  resolved "https://registry.npm.taobao.org/rn-host-detect/download/rn-host-detect-1.1.5.tgz#fbecb982b73932f34529e97932b9a63e58d8deb6"
+  integrity sha1-++y5grc5MvNFKel5MrmmPljY3rY=
 
 rongcloud-react-native-imlib@^0.3.3:
   version "0.3.3"

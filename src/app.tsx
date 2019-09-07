@@ -13,6 +13,10 @@ import {Icon} from "react-native-material-ui";
 import UpdateScreen from "./containers/UpdateScreen";
 import DevelopScreen from "./containers/DevelopScreen";
 import Conversation from "./containers/Conversation";
+
+if (__DEV__) {
+    import('./supports/ReactotronConfig').then(() => console.log('Reactotron Configured'))
+}
 export class App extends Component {
     render() {
         return (

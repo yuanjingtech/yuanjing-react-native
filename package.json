@@ -29,6 +29,7 @@
     "react-native-webview": "^6.9.0",
     "react-navigation": "^3.11.1",
     "react-navigation-hooks": "^1.0.1",
+    "reactotron-react-native": "^3.6.5",
     "rongcloud-react-native-imlib": "^0.3.3"
   },
   "devDependencies": {
