@@ -25,7 +25,7 @@ PODS:
     - AppCenter/Core (= 2.5.1)
   - Base64 (1.1.2)
   - boost-for-react-native (1.63.0)
-  - CodePush (5.6.1):
+  - CodePush (5.7.0):
     - Base64 (~> 1.1)
     - JWT (~> 3.0.0-beta.7)
     - React
@@ -114,7 +114,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.3.2):
     - GoogleUtilities/Logger
-  - JWT (3.0.0-beta.11):
+  - JWT (3.0.0-beta.12):
     - Base64 (~> 1.1.2)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
@@ -480,7 +480,7 @@ SPEC CHECKSUMS:
   AppCenterReactNativeShared: d5e360f8a4cb5126d29e31ab98051d2f070ba631
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  CodePush: 5fead4bea79a99aefcd3841607709846796177b3
+  CodePush: d2e54ad42df82a8db65b2d23d8191b950ba945e1
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   FBLazyVector: 0846affdb2924b01093eb696766ecb0104e409e0
   FBReactNativeSpec: c4cf958af1b97799b524f63a26a1c509c0295b04
@@ -497,7 +497,7 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 8e9b210c97d55fbff306cc5468ff91b9cb32dcf5
   GoogleDataTransportCCTSupport: ef79a4728b864946a8aafdbab770d5294faf3b5f
   GoogleUtilities: 547a86735c6f0ee30ad17e94df4fc21f616b71cb
-  JWT: 05028b9624591bba9681bb57df2c5f95fa258bad
+  JWT: 9b5c05abbcc1a0e69c3c91e1655b3387fc7e581d
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   RCTRequired: 53825815218847d3e9c7b6d92ad2d197a926d51e
   RCTTypeSafety: d886540c518e53064dfa081bf7693fd650699b92
