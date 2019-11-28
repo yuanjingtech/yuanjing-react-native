@@ -25,6 +25,7 @@
 		3963BDE729894CD39057A4CB /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A65964C1CEB94F0AB4B0C731 /* Ionicons.ttf */; };
 		4D2294302303F998006D4BF6 /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D22942F2303F998006D4BF6 /* AppCenter-Config.plist */; };
 		4D2294312303F998006D4BF6 /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D22942F2303F998006D4BF6 /* AppCenter-Config.plist */; };
+		4D50A787238FAC3C00D50859 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D50A786238FAC3C00D50859 /* GoogleService-Info.plist */; };
 		5246216386C640E281028F68 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED2266859874B47A649DD1F /* SimpleLineIcons.ttf */; };
 		626D87CBFB7E9141F290DEA5 /* libPods-yuanjing-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F808324C4CBEA47770E383 /* libPods-yuanjing-tvOS.a */; };
 		6CB0CBB37B864B90A265B986 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 561A8FABB54F4BAFAEFDF65A /* AntDesign.ttf */; };
@@ -79,6 +80,7 @@
 		3ED2266859874B47A649DD1F /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		48F5223B80584129A9524D99 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		4D22942F2303F998006D4BF6 /* AppCenter-Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "AppCenter-Config.plist"; path = "yuanjing/AppCenter-Config.plist"; sourceTree = "<group>"; };
+		4D50A786238FAC3C00D50859 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "yuanjing/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4DF6EAD1230507680005415E /* yuanjing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = yuanjing.entitlements; path = yuanjing/yuanjing.entitlements; sourceTree = "<group>"; };
 		561A8FABB54F4BAFAEFDF65A /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		5EFB70EC67DF68EBB0D58DE9 /* Pods-yuanjing-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yuanjing-tvOS.release.xcconfig"; path = "Target Support Files/Pods-yuanjing-tvOS/Pods-yuanjing-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		13B07FAE1A68108700A75B9A /* yuanjing */ = {
 			isa = PBXGroup;
 			children = (
+				4D50A786238FAC3C00D50859 /* GoogleService-Info.plist */,
 				4DF6EAD1230507680005415E /* yuanjing.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -436,6 +439,7 @@
 				A3F8D8A82EE045A09DF1A08A /* MaterialCommunityIcons.ttf in Resources */,
 				3861FBCD111B4C7F914F908C /* MaterialIcons.ttf in Resources */,
 				071569851F98472687E12291 /* Octicons.ttf in Resources */,
+				4D50A787238FAC3C00D50859 /* GoogleService-Info.plist in Resources */,
 				5246216386C640E281028F68 /* SimpleLineIcons.ttf in Resources */,
 				151BD6438EDB47FCBC5FC68D /* Zocial.ttf in Resources */,
 			);
@@ -598,6 +602,7 @@
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -617,6 +622,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCConfig.plist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -1,6 +1,5 @@
-import Push from 'appcenter-push';
-import React, {Component} from 'react'
-import {createStackNavigator, createAppContainer, createBottomTabNavigator} from 'react-navigation';
+import React, {useEffect} from 'react'
+import {createAppContainer, createBottomTabNavigator, createStackNavigator} from 'react-navigation';
 import {HomeScreen} from "./containers/HomeScreen";
 import {MainScreen} from "./containers/MainScreen";
 import ScrollableTabView from "react-native-scrollable-tab-view";
@@ -8,27 +7,27 @@ import {MyWebView} from "./components/MyWebView";
 // import Conversation from "./containers/Conversation";
 import LoginScreen from "./containers/LoginScreen";
 import codePush, {CodePushOptions, DownloadProgress, SyncStatus} from "react-native-code-push";
-import {Alert, AppState} from "react-native";
 import {Icon} from "react-native-material-ui";
 import UpdateScreen from "./containers/UpdateScreen";
 import DevelopScreen from "./containers/DevelopScreen";
-// import Conversation from "./containers/Conversation";
+import TestAdScreen from "./containers/TestAdContainer";
 
 if (__DEV__) {
     import('./supports/ReactotronConfig').then(() => console.log('Reactotron Configured'))
 }
-export class App extends Component {
-    render() {
-        return (
-            <ScrollableTabView
-                tabBarPosition="bottom"
-            >
-                {/*<HomeScreenStack tabLabel="首页"/>*/}
-                {/*<MainScreen tabLabel="远景"/>*/}
-                {/*<MoreScreen tabLabel="更多"/>*/}
-            </ScrollableTabView>
-        );
-    }
+
+
+export function App() {
+
+    return (
+        <ScrollableTabView
+            tabBarPosition="bottom"
+        >
+            {/*<HomeScreenStack tabLabel="首页"/>*/}
+            {/*<MainScreen tabLabel="远景"/>*/}
+            {/*<MoreScreen tabLabel="更多"/>*/}
+        </ScrollableTabView>
+    );
 }
 
 let tabConfig = {
@@ -37,6 +36,7 @@ let tabConfig = {
     More: MainScreen,
     Update: UpdateScreen,
     Develop: DevelopScreen,
+    TestAd: TestAdScreen,
 };
 const TabNavigator = createBottomTabNavigator(tabConfig, {
     initialRouteName: "Home",

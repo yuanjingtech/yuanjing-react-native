@@ -38,6 +38,10 @@ target 'yuanjing' do
   # CodePush plugin dependency
   pod 'CodePush', :podspec => '../node_modules/react-native-code-push/CodePush.podspec'
 
+  pod 'Firebase/Analytics'
+  pod 'Firebase/AdMob'
+  pod 'Google-Mobile-Ads-SDK'
+
   target 'yuanjingTests' do
     inherit! :search_paths
     # Pods for testing

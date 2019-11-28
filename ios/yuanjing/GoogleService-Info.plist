@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>927762087277-m3206cjm9var0td48pjbkp0igufo595r.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.927762087277-m3206cjm9var0td48pjbkp0igufo595r</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCRLHxG4rkZW6uuWvNNbG27cm8AWhZ_Gq8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>927762087277</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.yuanjingtech.yuanjing</string>
+	<key>PROJECT_ID</key>
+	<string>igneous-impulse-241906</string>
+	<key>STORAGE_BUCKET</key>
+	<string>igneous-impulse-241906.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:927762087277:ios:2ca4de0d71952886bb2e64</string>
+	<key>DATABASE_URL</key>
+	<string>https://igneous-impulse-241906.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-2225047970234229~8618774783</string>
+</dict>
+</plist>
