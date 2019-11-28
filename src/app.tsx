@@ -11,6 +11,7 @@ import {Icon} from "react-native-material-ui";
 import UpdateScreen from "./containers/UpdateScreen";
 import DevelopScreen from "./containers/DevelopScreen";
 import TestAdScreen from "./containers/TestAdContainer";
+import WelcomeScreen from "./containers/WelcomeScreen";
 
 if (__DEV__) {
     import('./supports/ReactotronConfig').then(() => console.log('Reactotron Configured'))
@@ -34,9 +35,7 @@ let tabConfig = {
     Home: HomeScreen,
     // Chat: Conversation,
     More: MainScreen,
-    Update: UpdateScreen,
     Develop: DevelopScreen,
-    TestAd: TestAdScreen,
 };
 const TabNavigator = createBottomTabNavigator(tabConfig, {
     initialRouteName: "Home",
@@ -76,12 +75,15 @@ const TabNavigator = createBottomTabNavigator(tabConfig, {
 TabNavigator.navigationOptions = () => ({headerLeft: null});
 
 const AppNavigator = createStackNavigator({
+        Welcome: {screen: WelcomeScreen},
         Login: {screen: LoginScreen},
         Main: {screen: TabNavigator},
         MyWebView: {screen: MyWebView},
+        TestAd: {screen: TestAdScreen},
+        Update: {screen: UpdateScreen},
     },
     {
-        initialRouteName: 'Main', // 默认登录页,
+        initialRouteName: 'Welcome', // 默认登录页,
     }
 );
 //
