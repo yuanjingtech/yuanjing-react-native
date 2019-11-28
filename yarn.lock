@@ -1133,14 +1133,6 @@
     "@types/prop-types" "*"
     "@types/react" "*"
 
-"@types/react-navigation@^3.0.8":
-  version "3.0.8"
-  resolved "https://registry.npm.taobao.org/@types/react-navigation/download/@types/react-navigation-3.0.8.tgz#770d5217a4795fe8526e2a69cc6ccb8600c911e4"
-  integrity sha1-dw1SF6R5X+hSbippzGzLhgDJEeQ=
-  dependencies:
-    "@types/react" "*"
-    "@types/react-native" "*"
-
 "@types/react-test-renderer@^16.9.0":
   version "16.9.0"
   resolved "https://registry.npm.taobao.org/@types/react-test-renderer/download/@types/react-test-renderer-16.9.0.tgz#d60f530ecf4c906721511603cca711b4fa830d41"
@@ -3346,7 +3338,7 @@ growly@^1.3.0:
 
 hammerjs@^2.0.8:
   version "2.0.8"
-  resolved "http://r.cnpmjs.org/hammerjs/download/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
+  resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
   integrity sha1-BO93hiz/K7edMPdpIJWTAiK/YPE=
 
 handlebars@^4.1.2:
@@ -3445,8 +3437,8 @@ hermesvm@^0.1.1:
 
 hoist-non-react-statics@^2.3.1, hoist-non-react-statics@^2.5.0, hoist-non-react-statics@^2.5.5:
   version "2.5.5"
-  resolved "http://r.cnpmjs.org/hoist-non-react-statics/download/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
-  integrity sha1-xZA89AnA39kI84jmGdhrnBF0y0c=
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
+  integrity sha512-rqcy4pJo55FTTLWt+bU8ukscqHeE/e9KWvsOW2b/a3afxQZhwkQdT1rPPCJ0rYXdj4vNcasY8zHTH+jF/qStxw==
 
 hoist-non-react-statics@^3.0.1, hoist-non-react-statics@^3.3.0:
   version "3.3.0"
@@ -3640,8 +3632,8 @@ inquirer@^6.4.1:
 
 invariant@2.2.4, invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
-  resolved "http://r.cnpmjs.org/invariant/download/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
-  integrity sha1-YQ88ksk1nOHbYW5TgAjSP/NRWOY=
+  resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
+  integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
   dependencies:
     loose-envify "^1.0.0"
 
@@ -4329,8 +4321,8 @@ jju@^1.3.0:
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
-  resolved "https://registry.npm.taobao.org/js-tokens/download/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
-  integrity sha1-GSA/tZmR35jjoocFDUZHzerzJJk=
+  resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
+  integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
 js-tokens@^3.0.2:
   version "3.0.2"
@@ -5992,9 +5984,9 @@ react-native-code-push@^5.6.1:
     xcode "1.0.0"
 
 react-native-gesture-handler@^1.3.0:
-  version "1.4.1"
-  resolved "http://r.cnpmjs.org/react-native-gesture-handler/download/react-native-gesture-handler-1.4.1.tgz#c38d9e57637b95e221722a79f2bafac62e3aeb21"
-  integrity sha1-w42eV2N7leIhcip58rr6xi466yE=
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.5.1.tgz#681cef98954d48cd82f99f75de3ab203c8754354"
+  integrity sha512-n4+tXAplf7B3qoHgvOxmKfx8cr/hzCSxyEEGxO/3aYyvSYbyt1o6Q7hmTC2JuezllB44b4v/FcCTd6Rgu3MMfg==
   dependencies:
     hammerjs "^2.0.8"
     hoist-non-react-statics "^2.3.1"
@@ -6129,9 +6121,9 @@ react-navigation-drawer@~1.4.0:
     react-native-tab-view "^1.2.0"
 
 react-navigation-hooks@^1.0.1:
-  version "1.0.3"
-  resolved "http://r.cnpmjs.org/react-navigation-hooks/download/react-navigation-hooks-1.0.3.tgz#8c203c1a4eff453d2cc07b33667abdd2a6417ab8"
-  integrity sha1-jCA8Gk7/RT0swHszZnq90qZBerg=
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-navigation-hooks/-/react-navigation-hooks-1.1.0.tgz#337c41a50ebc7b9030bb9d9333cd4fd6e1f86b68"
+  integrity sha512-ZY/aiYJ88KXaOo8iOa4171O/0x6ztGhUPd2OYzdaJhLT/tP64zi5HB/RZFImuKhaBTODXjoSpFaOTA5xpePG4g==
 
 react-navigation-stack@1.5.3:
   version "1.5.3"
@@ -6505,9 +6497,9 @@ rn-host-detect@1.1.5:
   integrity sha1-++y5grc5MvNFKel5MrmmPljY3rY=
 
 rongcloud-react-native-imlib@^0.3.3:
-  version "0.3.6"
-  resolved "http://r.cnpmjs.org/rongcloud-react-native-imlib/download/rongcloud-react-native-imlib-0.3.6.tgz#bed73dbe1ad22302cb52b1dba27306f9a3ecec37"
-  integrity sha1-vtc9vhrSIwLLUrHbonMG+aPs7Dc=
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/rongcloud-react-native-imlib/-/rongcloud-react-native-imlib-0.3.9.tgz#6f9c7d2ea9237309c223fd7dcfceb23488e7d79d"
+  integrity sha512-kLZFCRmWhYUw/RmydzOVyx6yYN88oQta8+m3QA2e6BrE4yZUAg6hsdq5Pab8S+172jpIdtYg6bo0Dlz7U7IkNA==
 
 rsvp@^4.8.4:
   version "4.8.5"
