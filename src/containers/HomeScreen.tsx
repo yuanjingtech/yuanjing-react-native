@@ -1,57 +1,43 @@
 import React, {useEffect, useState} from 'react'
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {MyWebView} from "../components/MyWebView";
-import {useNavigation} from "react-navigation-hooks";
-import {Icon} from 'react-native-material-ui';
+import {FlatList, RefreshControl, StyleSheet, View} from 'react-native';
 import MyAdBanner from "../components/MyAdBanner";
 import {subAppService} from "../modules/subapp/services";
+import AppItem, {TApp} from "../modules/subapp/components/SubAppItem";
 
-interface TApp {
-    id: any,
-    name: string,
-    uri: string,
-    icon_name?: string,
-}
-
-export interface Props {
-    data?: any;
-}
-
-const AppItem = (props: Props) => {
-    const {navigate} = useNavigation();
-    const {name, uri, icon_name} = props.data;
-    return (
-        <TouchableOpacity
-            style={styles.item}
-            onPress={() => {
-                navigate('MyWebView', {name: name, uri: uri, title: name});
-            }}>
-            <Icon name={icon_name || 'plug'} color=""/>
-            <Text>{name}</Text>
-        </TouchableOpacity>
-    );
-};
 
 export const HomeScreen = () => {
+    const [refreshing, setRefreshing] = useState(false);
     const [apps, setApps] = useState<TApp[]>(() => {
         return []
     });
+    let refresh = async () => {
+        setRefreshing(true);
+        const apps = await subAppService.getWorkAppList();
+        console.log(`refresh app:${JSON.stringify(apps)}`);
+        setApps(apps);
+        setRefreshing(false);
+    };
     useEffect(() => {
-        const run = async () => {
-            const apps = await subAppService.getAppList();
-            setApps(apps);
-        };
+        const run = refresh;
         // noinspection JSIgnoredPromiseFromCall
         run();
     }, []);
     return (
-
         <View style={styles.main_container}>
             <MyAdBanner/>
-            <View style={styles.container}>
-                {apps.map((v: TApp) => <AppItem key={`${v.id}`} data={{name: v.name, uri: v.uri, icon_name: v.icon_name}}/>)}
-                <View style={{flex: 1}}></View>
-            </View>
+            <FlatList
+                refreshControl={
+                    <RefreshControl
+                        refreshing={refreshing}
+                        onRefresh={refresh}
+                    />
+                }
+                style={{flex: 1}}
+                contentContainerStyle={{flex: 1, flexGrow: 1}}
+                data={apps}
+                renderItem={({item}) => <AppItem key={`${item.id}`} data={{name: item.name, uri: item.uri, icon_name: item.icon_name, app: item}}/>}
+                numColumns={5}
+                keyExtractor={(item, index) => item.id.toString()}/>
         </View>
     );
 };
@@ -60,13 +46,12 @@ export const HomeScreen = () => {
 const styles = StyleSheet.create({
     main_container: {
         flex: 1,
+        justifyContent: 'flex-start',
+        alignItems: 'center'
     },
     container: {
+        width: '100%',
         flex: 1,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-around',
-        alignItems: 'center'
     },
     item: {
         margin: 5,
