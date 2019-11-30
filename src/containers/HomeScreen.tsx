@@ -3,6 +3,7 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {MyWebView} from "../components/MyWebView";
 import {useNavigation} from "react-navigation-hooks";
 import {Icon} from 'react-native-material-ui';
+import MyAdBanner from "../components/MyAdBanner";
 
 interface TApp {
     id: any,
@@ -83,15 +84,22 @@ export const HomeScreen = () => {
         ]
     });
     return (
-        <View style={styles.container}>
-            {apps.map((v: TApp) => <AppItem key={`${v.id}`} data={{name: v.name, uri: v.uri, icon_name: v.icon_name}}/>)}
-            <View style={{flex: 1}}></View>
+
+        <View style={styles.main_container}>
+            <MyAdBanner/>
+            <View style={styles.container}>
+                {apps.map((v: TApp) => <AppItem key={`${v.id}`} data={{name: v.name, uri: v.uri, icon_name: v.icon_name}}/>)}
+                <View style={{flex: 1}}></View>
+            </View>
         </View>
     );
 };
 
 
 const styles = StyleSheet.create({
+    main_container: {
+        flex: 1,
+    },
     container: {
         flex: 1,
         flexDirection: 'row',

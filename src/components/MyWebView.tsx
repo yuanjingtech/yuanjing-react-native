@@ -4,6 +4,7 @@ import {useNavigation, useNavigationParam} from "react-navigation-hooks";
 import {WebView} from 'react-native-webview';
 import {WebViewNavigation} from "react-native-webview/lib/WebViewTypes";
 import Button from "./Button";
+import MyAdBanner from "./MyAdBanner";
 
 export const MyWebView = () => {
     const navigation = useNavigation();
@@ -24,6 +25,7 @@ export const MyWebView = () => {
     }, []);
     return (
         <View style={styles.container}>
+            <MyAdBanner/>
             <WebView
                 ref={webViewElement}
                 source={{uri: uri}}

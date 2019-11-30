@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from "react-native";
 import {Button} from "react-native-material-ui";
 import {useNavigation} from "react-navigation-hooks";
-
+import MyAdBanner from "../components/MyAdBanner";
 const isHermes = () => global.HermesInternal != null;
 const styles = StyleSheet.create({
     button: {
@@ -21,6 +21,7 @@ const DevelopScreen = () => {
     }, []);
     return (
         <View>
+            <MyAdBanner/>
             <Text>Hermes:{isHermes() ? "true" : "false"}</Text>
             <Button text={"Welcome"} onPress={() => navigate("Welcome")}/>
             <Button text={"Test Ad"} onPress={() => navigate("TestAd")}/>
