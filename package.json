@@ -15,11 +15,13 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.6.3",
     "appcenter": "^2.2.0",
     "appcenter-analytics": "^2.2.0",
     "appcenter-crashes": "^2.2.0",
     "appcenter-push": "^2.2.0",
     "hermesvm": "^0.1.1",
+    "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "16.9.0",
     "react-native": "0.61.1",

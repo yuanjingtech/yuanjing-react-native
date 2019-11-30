@@ -323,11 +323,13 @@ PODS:
     - React-cxxreact (= 0.61.1)
     - React-jsi (= 0.61.1)
     - ReactCommon/jscallinvoker (= 0.61.1)
-  - RNGestureHandler (1.4.1):
+  - RNCAsyncStorage (1.6.3):
+    - React
+  - RNGestureHandler (1.5.1):
     - React
   - RNVectorIcons (6.6.0):
     - React
-  - rongcloud-react-native-imlib (0.3.6):
+  - rongcloud-react-native-imlib (0.3.9):
     - React
     - RongCloudIM/IMLib (~> 2.9.22)
   - RongCloudIM/IMLib (2.9.25)
@@ -372,6 +374,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/jscallinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - rongcloud-react-native-imlib (from `../node_modules/rongcloud-react-native-imlib`)
@@ -462,6 +465,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-community/async-storage"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNVectorIcons:
@@ -520,9 +525,10 @@ SPEC CHECKSUMS:
   React-RCTText: 81b62b4e7f11531a5154e4daa5617670d5a2d5de
   React-RCTVibration: 8be61459e3749d1fb02cf414edd05b3007622882
   ReactCommon: 4fba5be89efdf0b5720e0adb3d8d7edf6e532db0
-  RNGestureHandler: 4cb47a93019c1a201df2644413a0a1569a51c8aa
+  RNCAsyncStorage: 3c304d1adfaea02ec732ac218801cb13897aa8c0
+  RNGestureHandler: 7add966bb5d90ee8cf38d4341f87814474357972
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
-  rongcloud-react-native-imlib: 4a1f792cd26fb3b1359b5d1e3ccaff7d29fa8d7e
+  rongcloud-react-native-imlib: 7e28c4d35b40922027bd5bc4f093eb87555b94c1
   RongCloudIM: cd6836aa86fbf6c02f7b6b5c895ea4caa894d67f
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   Yoga: d8c572ddec8d05b7dba08e4e5f1924004a177078
