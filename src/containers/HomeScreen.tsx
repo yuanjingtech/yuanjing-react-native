@@ -22,7 +22,7 @@ const AppItem = (props: Props) => {
         <TouchableOpacity
             style={styles.item}
             onPress={() => {
-                navigate('MyWebView', {name: name, uri: uri}, {title: name});
+                navigate('MyWebView', {name: name, uri: uri, title: name});
             }}>
             <Icon name={icon_name || 'plug'} color=""/>
             <Text>{name}</Text>
@@ -67,6 +67,18 @@ export const HomeScreen = () => {
                 name: "更多",
                 uri: "http://www.yuanjingtech.com/more.html",
                 icon_name: "bars"
+            },
+            {
+                id: 6,
+                name: "来阅读",
+                uri: "https://xread-web.now.sh/",
+                icon_name: "bars"
+            },
+            {
+                id: 7,
+                name: '笑话2',
+                uri: 'http://joke2.yuanjingtech.com',
+                icon_name: "smile-o"
             },
         ]
     });

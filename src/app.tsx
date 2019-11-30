@@ -34,7 +34,7 @@ export function App() {
 let tabConfig = {
     Home: HomeScreen,
     // Chat: Conversation,
-    More: MainScreen,
+    // More: MainScreen,
     Develop: DevelopScreen,
 };
 const TabNavigator = createBottomTabNavigator(tabConfig, {
