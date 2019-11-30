@@ -158,13 +158,16 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro", "proguard-rules-react-native-wechat.pro", "proguard-rules-firebase.pro"
+            multiDexKeepProguard file('multidex-config.pro')
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://facebook.github.io/react-native/docs/signed-apk-android.
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro", "proguard-rules-react-native-wechat.pro"
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro", "proguard-rules-react-native-wechat.pro", "proguard-rules-firebase.pro"
+            multiDexKeepProguard file('multidex-config.pro')
         }
     }
     // applicationVariants are e.g. debug, release
