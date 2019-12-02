@@ -96,6 +96,12 @@ class SubAppService {
                 uri: 'https://lotosbin.github.io/',
                 icon_name: "smile-o"
             },
+            {
+                id: 9,
+                name: 'V2EX',
+                uri: 'https://www.v2ex.com/?r=lotosbin',
+                icon_name: "smile-o"
+            },
         ]
     }
 }
