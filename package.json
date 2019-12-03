@@ -5,10 +5,12 @@
   "scripts": {
     "start": "react-native start",
     "ios": "react-native run-ios --simulator=\"iPhone 11\"",
+    "ios:bundle": "react-native bundle --entry-file index.js --bundle-output ./ios/main.jsbundle --platform ios --assets-dest ./ios --dev false",
     "ios:release": "react-native run-ios --configuration Release --simulator=\"iPhone 11\"",
     "ios:codepush": "appcenter codepush release-react -a yuanjingtech/yuanjing -d Staging",
     "android": "react-native run-android",
     "android:reverse": "adb reverse tcp:8081 tcp:8081",
+    "android:bundle": "react-native bundle --entry-file index.android.js --bundle-output ./android/app/src/main/assets/index.android.bundle --platform android --assets-dest ./android/app/src/main/res --dev false",
     "android:release": "react-native run-android --variant=release",
     "android:codepush": "appcenter codepush release-react -a yuanjingtech/yuanjing-1 -d Staging",
     "test": "jest",
