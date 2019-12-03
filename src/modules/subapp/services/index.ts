@@ -107,6 +107,11 @@ class SubAppService {
                 name: '毒鸡汤',
                 uri: 'https://lab.lalkk.com/fun/du/',
                 icon_name: "smile-o"
+            }, {
+                id: 11,
+                name: '仙人球调查',
+                uri: 'https://xrq360.com/',
+                icon_name: "smile-o"
             },
         ]
     }
