@@ -102,6 +102,12 @@ class SubAppService {
                 uri: 'https://www.v2ex.com/?r=lotosbin',
                 icon_name: "smile-o"
             },
+            {
+                id: 10,
+                name: '毒鸡汤',
+                uri: 'https://lab.lalkk.com/fun/du/',
+                icon_name: "smile-o"
+            },
         ]
     }
 }
