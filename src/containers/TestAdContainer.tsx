@@ -11,7 +11,6 @@ import {Button} from "react-native-material-ui";
 function TestAdContainer() {
     useEffect(() => {
         const run = async () => {
-            console.log(`TestAdContainer:start request ad`);
             try { // Display an interstitial
                 let id = 'ca-app-pub-2225047970234229/5852445331';
                 if (Platform.OS === 'ios') {
@@ -19,10 +18,11 @@ function TestAdContainer() {
                 }
                 AdMobInterstitial.setAdUnitID(id);
                 AdMobInterstitial.setTestDevices([AdMobInterstitial.simulatorId]);
+                console.log(`TestAdContainer:start request ad unitID=${id}`);
                 await AdMobInterstitial.requestAd();
                 AdMobInterstitial.showAd();
             } catch (e) {
-                console.error(e)
+                console.log(e)
             }
         };
         // noinspection JSIgnoredPromiseFromCall
@@ -45,7 +45,7 @@ function TestAdContainer() {
                 adSize="fullBanner"
                 adUnitID={Platform.OS === 'ios' ? 'ca-app-pub-2225047970234229/6604067104' : 'ca-app-pub-2225047970234229/5217111042'}
                 testDevices={[AdMobBanner.simulatorId]}
-                onAdFailedToLoad={(error: any) => console.error(error)}
+                onAdFailedToLoad={(error: any) => console.log(error)}
             />
             <Button text={"显示激励广告"} onPress={showRewardedAd}/>
         </View>
