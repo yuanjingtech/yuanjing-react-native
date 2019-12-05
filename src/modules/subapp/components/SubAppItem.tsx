@@ -26,7 +26,7 @@ const AppItem = (props: Props) => {
                 navigate('MyWebView', {name: name, uri: uri, title: name});
             }}>
             <Icon name={icon_name || 'plug'} color=""/>
-            <Text>{name}</Text>
+            <Text style={{fontSize: 18}} lineBreakMode={"tail"} numberOfLines={2}>{name}</Text>
         </TouchableOpacity>
     );
 };
@@ -43,9 +43,9 @@ const styles = StyleSheet.create({
     },
     item: {
         margin: 5,
-        width: 64,
-        height: 64,
-        justifyContent: 'center',
+        width: 80,
+        height: 80,
+        justifyContent: 'flex-start',
         alignItems: 'center'
     }
 });

@@ -1,5 +1,7 @@
 import {TApp} from "../components/SubAppItem";
 import R from "ramda";
+import {client} from "../../../apollo"
+import gql from "graphql-tag";
 
 const uniq = R.uniqBy((it: TApp) => it.id);
 
@@ -40,80 +42,31 @@ class SubAppService {
         return []
     }
 
-
     async getAllAppList() {
-        return [
-            {
-                id: 0,
-                name: 'Demo',
-                uri: 'http://www.baidu.com',
-            },
-            {
-                id: 1,
-                name: '笑话',
-                uri: 'http://joke.yuanjingtech.com',
-                icon_name: "smile-o"
-            },
-            {
-                id: 2,
-                name: '远景',
-                uri: 'http://www.yuanjingtech.com',
-                icon_name: 'star-o'
-            },
-            {
-                id: 3,
-                name: '导航',
-                uri: 'http://daohang.binbinsoft.com/',
-                icon_name: 'internet-explorer'
-            },
-            {
-                id: 4,
-                name: '优惠',
-                uri: 'http://youhui.yuanjingtech.com/',
-                icon_name: "tags"
-            },
-            {
-                id: 5,
-                name: "更多",
-                uri: "http://www.yuanjingtech.com/more.html",
-                icon_name: "bars"
-            },
-            {
-                id: 6,
-                name: "来阅读",
-                uri: "https://xread-web.now.sh/",
-                icon_name: "bars"
-            },
-            {
-                id: 7,
-                name: '笑话2',
-                uri: 'http://joke2.yuanjingtech.com',
-                icon_name: "smile-o"
-            },
-            {
-                id: 8,
-                name: '博客',
-                uri: 'https://lotosbin.github.io/',
-                icon_name: "smile-o"
-            },
-            {
-                id: 9,
-                name: 'V2EX',
-                uri: 'https://www.v2ex.com/?r=lotosbin',
-                icon_name: "smile-o"
-            },
-            {
-                id: 10,
-                name: '毒鸡汤',
-                uri: 'https://lab.lalkk.com/fun/du/',
-                icon_name: "smile-o"
-            }, {
-                id: 11,
-                name: '仙人球调查',
-                uri: 'https://xrq360.com/',
-                icon_name: "smile-o"
-            },
-        ]
+        try {
+            const {data} = await client.query({
+                query: gql`{
+                    viewer{
+                        subappconnection(page:{last:10}){
+                            edges{
+                                node{
+                                    id
+                                    name
+                                    uri:url
+                                    icon_name
+                                }
+                            }
+                        }
+                    }
+                }`
+            });
+            console.log(`data:${JSON.stringify(data)}`);
+            return data.viewer.subappconnection.edges.map((e: { node: any; }) => e.node);
+        } catch (e) {
+            console.error(e);
+            console.log(e.message, e);
+            return [];
+        }
     }
 }
 

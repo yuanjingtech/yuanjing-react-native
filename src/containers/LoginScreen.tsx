@@ -1,13 +1,19 @@
 import React, {useState} from 'react';
-import {Button, Text, TextInput, View} from "react-native";
+import {Button, Text, TextInput, View, Alert} from "react-native";
 import {useNavigation} from "react-navigation-hooks";
+import {authService} from "../modules/auth/services";
 
 const LoginScreen = () => {
-    const [username, setUsername] = useState();
-    const [password, setPassword] = useState();
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
     const {navigate} = useNavigation();
-    const onLogin = () => {
-        navigate('Main', {})
+    const onLogin = async () => {
+        const user = await authService.login(username, password);
+        if (user != null) {
+            navigate('Main', {})
+        } else {
+            Alert.alert("用户名或密码错误")
+        }
     };
     return (
         <View>

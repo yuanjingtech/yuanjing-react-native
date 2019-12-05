@@ -3,6 +3,7 @@ import {StyleSheet, Text, View} from "react-native";
 import {Button} from "react-native-material-ui";
 import {useNavigation} from "react-navigation-hooks";
 import MyAdBanner from "../components/MyAdBanner";
+// @ts-ignore
 const isHermes = () => global.HermesInternal != null;
 const styles = StyleSheet.create({
     button: {
@@ -26,6 +27,7 @@ const DevelopScreen = () => {
             <Button text={"Welcome"} onPress={() => navigate("Welcome")}/>
             <Button text={"Test Ad"} onPress={() => navigate("TestAd")}/>
             <Button text={"Update"} onPress={() => navigate("Update", {navigationOptions: {title: "Update"}})}/>
+            <Button text={"Login"} onPress={() => navigate("Login", {navigationOptions: {title: "Login"}})}/>
         </View>
     );
 };

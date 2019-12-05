@@ -8,7 +8,7 @@ import {name as appName} from './app.json';
 import React, {Component} from 'react';
 // import {wechat_app_init} from "./src/modules/wechat";
 import {COLOR, ThemeContext, getTheme} from 'react-native-material-ui';
-
+import {MyApolloProvider} from './src/apollo';
 type P = {}
 type S = {}
 const uiTheme = {
@@ -31,7 +31,9 @@ class Index extends Component<P, S> {
     render() {
         return (
             <ThemeContext.Provider value={getTheme(uiTheme)}>
-                <App></App>
+                <MyApolloProvider>
+                    <App/>
+                </MyApolloProvider>
             </ThemeContext.Provider>
         );
     }

@@ -36,7 +36,7 @@ export const HomeScreen = () => {
                 contentContainerStyle={{flex: 1, flexGrow: 1}}
                 data={apps}
                 renderItem={({item}) => <AppItem key={`${item.id}`} data={{name: item.name, uri: item.uri, icon_name: item.icon_name, app: item}}/>}
-                numColumns={5}
+                numColumns={4}
                 keyExtractor={(item, index) => item.id.toString()}/>
         </View>
     );
