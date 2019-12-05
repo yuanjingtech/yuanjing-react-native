@@ -51,7 +51,7 @@ const MyAdBannerWithReward = () => {
     return <>
         {show ? <View>
             <MyAdBanner/>
-            {visible ? <Text style={{textAlign: "center"}} onPress={() => AdMobRewarded.showAd()}>看视频免广告</Text> : null}
+            {visible ? <Text style={{textAlign: "center", padding: 8, fontSize: 16}} onPress={() => AdMobRewarded.showAd()}>看视频免广告</Text> : null}
         </View> : null}
     </>;
 };
