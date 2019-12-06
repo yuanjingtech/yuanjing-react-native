@@ -15,14 +15,19 @@ export interface Props {
     data?: any;
 }
 
-const AppItem = (props: Props) => {
+interface TProps extends Props {
+    onPress?: () => void
+}
+
+const AppItem = (props: TProps) => {
     const {navigate} = useNavigation();
     const {name, uri, icon_name, app} = props.data;
     return (
         <TouchableOpacity
             style={styles.item}
-            onPress={() => {
-                subAppService.recordOpen(app)
+            onPress={async () => {
+                await subAppService.recordOpen(app);
+                props.onPress?.();
                 navigate('MyWebView', {name: name, uri: uri, title: name});
             }}>
             <Icon name={icon_name || 'plug'} color=""/>
