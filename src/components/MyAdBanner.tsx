@@ -28,7 +28,7 @@ const MyAdBannerWithReward = () => {
             unitId = 'ca-app-pub-2225047970234229/8763348004'
         }
         AdMobRewarded.setAdUnitID(unitId);
-        AdMobRewarded.addEventListener('rewarded', async (reward: any) => {
+        AdMobRewarded.addEventListener('rewarded', async (reward: { type: String, amount: Number }) => {
                 console.log('AdMobRewarded => rewarded', reward);
                 await adService.remove();
                 await setShow(false)
@@ -47,6 +47,7 @@ const MyAdBannerWithReward = () => {
         };
         // noinspection JSIgnoredPromiseFromCall
         run();
+        return () => AdMobRewarded.removeAllListeners();
     }, []);
     return <>
         {show ? <View>

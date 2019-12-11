@@ -6,12 +6,14 @@ import ScrollableTabView from "react-native-scrollable-tab-view";
 import {MyWebView} from "./components/MyWebView";
 // import Conversation from "./containers/Conversation";
 import LoginScreen from "./containers/LoginScreen";
-import codePush, {CodePushOptions, DownloadProgress, SyncStatus} from "react-native-code-push";
+import codePush, {CodePushOptions, DownloadProgress} from "react-native-code-push";
 import {Icon} from "react-native-material-ui";
 import UpdateScreen from "./containers/UpdateScreen";
 import DevelopScreen from "./containers/DevelopScreen";
 import TestAdScreen from "./containers/TestAdContainer";
 import WelcomeScreen from "./containers/WelcomeScreen";
+import GetCoinScreen from "./containers/GetCoinScreen";
+import CoinViewRewardAd from "./modules/coin/containers/CoinViewRewardAd";
 
 if (__DEV__) {
     import('./supports/ReactotronConfig').then(() => console.log('Reactotron Configured'))
@@ -35,6 +37,7 @@ let tabConfig = {
     Home: HomeScreen,
     // Chat: Conversation,
     // More: MainScreen,
+    GetCoin: GetCoinScreen,
     Develop: DevelopScreen,
 };
 const TabNavigator = createBottomTabNavigator(tabConfig, {
@@ -81,6 +84,7 @@ const AppNavigator = createStackNavigator({
         MyWebView: {screen: MyWebView},
         TestAd: {screen: TestAdScreen},
         Update: {screen: UpdateScreen},
+        CoinViewRewardAd: {screen: CoinViewRewardAd},
     },
     {
         initialRouteName: 'Welcome', // 默认登录页,
@@ -116,7 +120,7 @@ const AppNavigator = createStackNavigator({
 // });
 let navigationContainer = createAppContainer(AppNavigator);
 // @ts-ignore
-navigationContainer.codePushStatusDidChange = (status: SyncStatus) => {
+navigationContainer.codePushStatusDidChange = (status: codePush.SyncStatus) => {
     switch (status) {
         case codePush.SyncStatus.CHECKING_FOR_UPDATE:
             console.log("Checking for updates.");
