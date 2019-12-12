@@ -1,8 +1,13 @@
 import {TApp} from "../components/SubAppItem";
 import R from "ramda";
-import cache, {recentCache, subAppNetworkCache} from "./cache";
+import cache, {recentCache, StorageCache, subAppNetworkCache} from "./cache";
 
 const uniq = R.uniqBy((it: TApp) => it.id);
+
+interface IHottestItem {
+    app: TApp;
+    count: number;
+}
 
 class SubAppService {
     cache = cache;
@@ -17,7 +22,7 @@ class SubAppService {
         let hottest = await hottestAppListTask;
         let recommend = await recommendAppListTask;
         let all = await allAppListTask;
-        return R.flatten([recent, hottest, recommend, all])
+        return R.flatten([recent.slice(0, 4), hottest.slice(0, 4), recommend.slice(0, 4), all])
     }
 
 
@@ -28,7 +33,15 @@ class SubAppService {
         this.recent.slice(0, 4);
         this.recent = uniq(this.recent);
         await recentCache.set(this.recent);
-        console.log(`recent:${JSON.stringify(this.recent)}`)
+        console.log(`recent:${JSON.stringify(this.recent)}`);
+        let find = this.hottest.find(e => e.app.id == app.id);
+        if (!find) {
+            find = {app: app, count: 0};
+            this.hottest.push(find)
+        }
+        find.count++;
+        this.hottest.slice(0, 4);
+        await this.hottestCache.set(this.hottest)
     }
 
     async getRecentAppList(): Promise<Array<TApp>> {
@@ -38,10 +51,16 @@ class SubAppService {
         return this.recent
     }
 
-    hottest: [] = [];
+    hottest: IHottestItem[] = [];
+    hottestCache = new StorageCache<IHottestItem[]>("@subapp_hottest_list");
 
     async getHottestAppList(): Promise<Array<TApp>> {
-        return this.hottest.sort()
+        if (!this.hottest.length) {
+            this.hottest = await this.hottestCache.get() || [];
+        }
+        let apps = this.hottest.sort((a, b) => a.count - b.count).reverse().map(it => it.app);
+        console.log(`hottest:${JSON.stringify(apps)}`);
+        return apps
     }
 
     async getRecommendAppList(): Promise<Array<TApp>> {
