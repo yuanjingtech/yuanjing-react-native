@@ -15,9 +15,9 @@ const CoinViewRewardAd = () => {
     };
     useEffect(() => {
         const run = async () => {
-            let unitId = 'ca-app-pub-2225047970234229/8986354067';
+            let unitId = 'ca-app-pub-2225047970234229/2146225928';
             if (Platform.OS === 'ios') {
-                unitId = 'ca-app-pub-2225047970234229/8763348004'
+                unitId = 'ca-app-pub-2225047970234229/2681396630'
             }
             AdMobRewarded.setAdUnitID(unitId);
 
