@@ -13,6 +13,7 @@
     "android:bundle": "react-native bundle --entry-file index.android.js --bundle-output ./android/app/src/main/assets/index.android.bundle --platform android --assets-dest ./android/app/src/main/res --dev false",
     "android:release": "react-native run-android --variant=release",
     "android:codepush": "appcenter codepush release-react -a yuanjingtech/yuanjing-1 -d Staging",
+    "codepush": "yarn run android:codepush && yarn run ios:codepush",
     "test": "jest",
     "lint": "eslint ."
   },
