@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {FlatList, RefreshControl, View} from "react-native";
 import AppItem, {TApp} from "../components/SubAppItem";
 import {subAppService} from "../services";
+import eventEmitter from "../../../common/eventEmitter";
 
 const SubAppList = () => {
     const [refreshing, setRefreshing] = useState(false);
@@ -27,6 +28,15 @@ const SubAppList = () => {
         // noinspection JSIgnoredPromiseFromCall
         run();
     }, []);
+    useEffect(() => {
+        const run = async () => {
+            eventEmitter.addListener("RECENT_APP_UPDATE", () => {
+                fetch()
+            })
+        };
+        // noinspection JSIgnoredPromiseFromCall
+        run();
+    }, []);
     return (<FlatList
         refreshControl={
             <RefreshControl
@@ -36,7 +46,7 @@ const SubAppList = () => {
         }
         style={{flex: 1, width: '100%'}}
         data={apps}
-        renderItem={({item}) => <AppItem key={`${item.id}`} data={{name: item.name, uri: item.uri, icon_name: item.icon_name, app: item}} onPress={fetch}/>}
+        renderItem={({item}) => <AppItem key={`${item.id}`} data={{name: item.name, uri: item.uri, icon_name: item.icon_name, app: item}}/>}
         numColumns={4}
         keyExtractor={(item, index) => item.id.toString()}/>);
 };

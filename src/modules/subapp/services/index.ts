@@ -1,6 +1,6 @@
 import {TApp} from "../components/SubAppItem";
 import R from "ramda";
-import cache, {subAppNetworkCache} from "./cache";
+import cache, {recentCache, subAppNetworkCache} from "./cache";
 
 const uniq = R.uniqBy((it: TApp) => it.id);
 
@@ -27,10 +27,14 @@ class SubAppService {
         this.recent.unshift(app);
         this.recent.slice(0, 4);
         this.recent = uniq(this.recent);
+        await recentCache.set(this.recent);
         console.log(`recent:${JSON.stringify(this.recent)}`)
     }
 
     async getRecentAppList(): Promise<Array<TApp>> {
+        if (!this.recent.length) {
+            this.recent = await recentCache.get() || [];
+        }
         return this.recent
     }
 

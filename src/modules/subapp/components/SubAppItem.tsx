@@ -3,6 +3,7 @@ import {useNavigation} from "react-navigation-hooks";
 import {StyleSheet, Text, TouchableOpacity} from "react-native";
 import {Icon} from "react-native-material-ui";
 import {subAppService} from "../services";
+import eventEmitter from "../../../common/eventEmitter";
 
 export interface TApp {
     id: any,
@@ -16,7 +17,6 @@ export interface Props {
 }
 
 interface TProps extends Props {
-    onPress?: () => void
 }
 
 const AppItem = (props: TProps) => {
@@ -27,8 +27,8 @@ const AppItem = (props: TProps) => {
             style={styles.item}
             onPress={async () => {
                 await subAppService.recordOpen(app);
-                props.onPress?.();
                 navigate('MyWebView', {name: name, uri: uri, title: name});
+                eventEmitter.emit("RECENT_APP_UPDATE")
             }}>
             <Icon name={icon_name || 'plug'} color=""/>
             <Text style={{fontSize: 18}} lineBreakMode={"tail"} numberOfLines={2}>{name}</Text>

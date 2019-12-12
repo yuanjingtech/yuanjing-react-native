@@ -61,4 +61,39 @@ export class SubAppStorageCache implements Cache<Array<TApp>> {
 
 export const subAppNetworkCache = new SubAppNetworkCache();
 const cache = new ComposeCache(new SubAppStorageCache(), subAppNetworkCache);
+
+class StorageCache implements Cache<Array<TApp>> {
+    protected key: string;
+
+    constructor(key: string) {
+        this.key = key
+    }
+
+    async set(value: Array<TApp>): Promise<void> {
+        console.log(`StorageCache:set`);
+        await AsyncStorage.setItem(this.key, JSON.stringify(value));
+    }
+
+    async get(): Promise<Array<TApp> | null> {
+        console.log(`StorageCache:get`);
+        try {
+            let json = await AsyncStorage.getItem(this.key);
+            if (json == null) {
+                return null
+            }
+            return JSON.parse(json);
+        } catch (e) {
+            console.log(e);
+            return null
+        }
+    }
+}
+
+class SubAppRecentStorageCache extends StorageCache {
+    constructor() {
+        super("@subapp_recent_list");
+    }
+}
+
+export const recentCache = new SubAppRecentStorageCache();
 export default cache;

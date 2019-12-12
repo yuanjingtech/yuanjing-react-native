@@ -14,6 +14,7 @@ import TestAdScreen from "./containers/TestAdContainer";
 import WelcomeScreen from "./containers/WelcomeScreen";
 import GetCoinScreen from "./containers/GetCoinScreen";
 import CoinViewRewardAd from "./modules/coin/containers/CoinViewRewardAd";
+import TabRecentScreen from "./containers/TabRecentScreen";
 
 if (__DEV__) {
     import('./supports/ReactotronConfig').then(() => console.log('Reactotron Configured'))
@@ -34,6 +35,7 @@ export function App() {
 }
 
 let tabConfig = {
+    Recent: TabRecentScreen,
     Home: HomeScreen,
     // Chat: Conversation,
     // More: MainScreen,
@@ -41,7 +43,7 @@ let tabConfig = {
     Develop: DevelopScreen,
 };
 const TabNavigator = createBottomTabNavigator(tabConfig, {
-    initialRouteName: "Home",
+    initialRouteName: "Recent",
     defaultNavigationOptions: ({navigation}) => ({
         tabBarIcon: ({focused, horizontal, tintColor}) => {
             const {routeName} = navigation.state;
