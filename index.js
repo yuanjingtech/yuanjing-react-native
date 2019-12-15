@@ -5,12 +5,12 @@
 import {AppRegistry} from 'react-native';
 import App from './src/app';
 import {name as appName} from './app.json';
-import React, {Component} from 'react';
+import React from 'react';
 // import {wechat_app_init} from "./src/modules/wechat";
-import {COLOR, ThemeContext, getTheme} from 'react-native-material-ui';
+import {COLOR, getTheme, ThemeContext} from 'react-native-material-ui';
 import {MyApolloProvider} from './src/apollo';
-type P = {}
-type S = {}
+import analytics from '@react-native-firebase/analytics';
+
 const uiTheme = {
     palette: {
         primaryColor: COLOR.green500,
@@ -22,21 +22,35 @@ const uiTheme = {
     },
     iconSet: 'FontAwesome',
 };
-class Index extends Component<P, S> {
-    constructor(props) {
-        super(props);
-        // wechat_app_init();
-    }
 
-    render() {
-        return (
-            <ThemeContext.Provider value={getTheme(uiTheme)}>
-                <MyApolloProvider>
-                    <App/>
-                </MyApolloProvider>
-            </ThemeContext.Provider>
-        );
+// gets the current screen from navigation state
+function getActiveRouteName(navigationState) {
+    if (!navigationState) {
+        return null;
     }
+    const route = navigationState.routes[navigationState.index];
+    // dive into nested navigators
+    if (route.routes) {
+        return getActiveRouteName(route);
+    }
+    return route.routeName;
 }
+
+const Index = () => (
+    <ThemeContext.Provider value={getTheme(uiTheme)}>
+        <MyApolloProvider>
+            <App onNavigationStateChange={(prevState, currentState, action) => {
+                const currentRouteName = getActiveRouteName(currentState);
+                const previousRouteName = getActiveRouteName(prevState);
+
+                if (previousRouteName !== currentRouteName) {
+                    // The line below uses the @react-native-firebase/analytics tracker
+                    // change the tracker here to use other Mobile analytics SDK.
+                    analytics().setCurrentScreen(currentRouteName, currentRouteName);
+                }
+            }}/>
+        </MyApolloProvider>
+    </ThemeContext.Provider>
+);
 
 AppRegistry.registerComponent(appName, () => Index);
