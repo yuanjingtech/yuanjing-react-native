@@ -33,7 +33,7 @@ export class SubAppNetworkCache implements Cache<Array<TApp>> {
         } catch (e) {
             console.error(e);
             console.log(e.message, e);
-            return [];
+            return null;
         }
     }
 }
