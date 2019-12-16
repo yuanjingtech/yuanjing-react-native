@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useNavigation} from "react-navigation-hooks";
+import {useNavigation} from "@react-navigation/native";
 import {View, StyleSheet, Text} from "react-native";
 import MyAdBanner from "../components/MyAdBanner";
 import {Button} from "react-native-material-ui";

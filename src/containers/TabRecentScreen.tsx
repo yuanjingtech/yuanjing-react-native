@@ -4,6 +4,7 @@ import MyAdBanner from "../components/MyAdBanner";
 import SubAppWebView from "../modules/subapp/components/SubAppWebView";
 import {subAppService} from "../modules/subapp/services";
 import eventEmitter from "../common/eventEmitter";
+import {useNavigation} from "@react-navigation/native";
 
 const RecentAppEmpty = () => {
     return <View style={styles.container}>
@@ -11,11 +12,16 @@ const RecentAppEmpty = () => {
     </View>
 };
 const TabRecentScreen = () => {
+    const navigation = useNavigation();
     const [uri, setUri] = useState("");
     const refresh = async () => {
         let apps = await subAppService.getRecentAppList();
         if (apps.length) {
-            setUri(apps[0].uri)
+            let app = apps[0];
+            setUri(app.uri);
+            navigation.setOptions({title: app.name})
+        } else {
+            navigation.setOptions({title: ''})
         }
     };
     useEffect(() => {

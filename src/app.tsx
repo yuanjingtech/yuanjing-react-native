@@ -1,5 +1,7 @@
 import React, {useEffect} from 'react'
-import {createAppContainer, createBottomTabNavigator, createStackNavigator} from 'react-navigation';
+import {createStackNavigator} from '@react-navigation/stack';
+import {createCompatNavigatorFactory} from '@react-navigation/compat';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {HomeScreen} from "./containers/HomeScreen";
 import {MainScreen} from "./containers/MainScreen";
 import ScrollableTabView from "react-native-scrollable-tab-view";
@@ -15,6 +17,8 @@ import WelcomeScreen from "./containers/WelcomeScreen";
 import GetCoinScreen from "./containers/GetCoinScreen";
 import CoinViewRewardAd from "./modules/coin/containers/CoinViewRewardAd";
 import TabRecentScreen from "./containers/TabRecentScreen";
+import {NavigationNativeContainer} from "@react-navigation/native";
+import {useTheme} from '@react-navigation/native';
 
 if (__DEV__) {
     import('./supports/ReactotronConfig').then(() => console.log('Reactotron Configured'))
@@ -34,52 +38,58 @@ export function App() {
     );
 }
 
-let tabConfig = {
-    Recent: TabRecentScreen,
-    Home: HomeScreen,
-    // Chat: Conversation,
-    // More: MainScreen,
-    GetCoin: GetCoinScreen,
-    Develop: DevelopScreen,
-};
-const TabNavigator = createBottomTabNavigator(tabConfig, {
-    initialRouteName: "Recent",
-    defaultNavigationOptions: ({navigation}) => ({
-        tabBarIcon: ({focused, horizontal, tintColor}) => {
-            const {routeName} = navigation.state;
-            let iconName = "question";
-            let iconSet = "FontAwesome";
-            switch (routeName) {
-                case 'Home':
-                    iconName = `home`;
-                    break;
-                case 'More':
-                    iconName = `star-o`;
-                    break;
-                case "Update":
-                    iconSet = "MaterialIcons";
-                    iconName = "system-update";
-                    break;
-                case "Develop":
-                    iconName = "tool";
-                    break;
-                case "Chat":
-                    iconSet = "MaterialIcons";
-                    iconName = "chat";
-            }
+const Tab = createMaterialBottomTabNavigator();
+const TabNavigator = () => {
+    const {colors} = useTheme();
+    return <Tab.Navigator
+        initialRouteName={"Recent"}
+        activeColor={colors.primary}
+        inactiveColor={colors.border}
+        barStyle={{backgroundColor: colors.background}}
+        screenOptions={({route: {name: routeName}}) => ({
+            navigationOptions: {
+                headerShown: false,
+                header: {
+                    visible: false,
+                }
+            },
+            tabBarIcon: ({color, focused, horizontal, tintColor}: any) => {
+                let iconName = "question";
+                switch (routeName) {
+                    case 'Home':
+                        iconName = `home`;
+                        break;
+                    case 'More':
+                        iconName = `star-o`;
+                        break;
+                    case "Update":
+                        iconName = "system-update";
+                        break;
+                    case "Develop":
+                        iconName = "tool";
+                        break;
+                    case "Chat":
+                        iconName = "chat";
+                }
 
-            // You can return any component that you like here!
-            return <Icon iconSet={iconSet} name={iconName} size={25} color={tintColor || "gray"}/>;
-        },
-    }),
-    tabBarOptions: {
-        activeTintColor: 'blue',
-        inactiveTintColor: 'gray',
-    },
-});
+                // You can return any component that you like here!
+                return <Icon name={iconName} size={25} color={color}/>;
+            },
+            tabBarOptions: {
+                activeTintColor: 'blue',
+                inactiveTintColor: 'gray',
+            }
+        })}>
+        <Tab.Screen name="Recent" component={TabRecentScreen} options={{title: "最近"}}/>
+        <Tab.Screen name="Home" component={HomeScreen} options={{title: "主页"}}/>
+        <Tab.Screen name="优惠" component={MyWebView} options={{title: "优惠"}} initialParams={{uri: 'http://youhui.yuanjingtech.com/'}}/>
+        <Tab.Screen name="GetCoin" component={GetCoinScreen} options={{title: "金币"}}/>
+        <Tab.Screen name="Develop" component={DevelopScreen} options={{title: "开发"}}/>
+    </Tab.Navigator>;
+};
 TabNavigator.navigationOptions = () => ({headerLeft: null});
 
-const AppNavigator = createStackNavigator({
+const AppNavigator = createCompatNavigatorFactory(createStackNavigator)({
         Welcome: {screen: WelcomeScreen},
         Login: {screen: LoginScreen},
         Main: {screen: TabNavigator},
@@ -120,7 +130,9 @@ const AppNavigator = createStackNavigator({
 //         }
 //     }
 // });
-let navigationContainer = createAppContainer(AppNavigator);
+let navigationContainer = () => <NavigationNativeContainer>
+    <AppNavigator/>
+</NavigationNativeContainer>;
 // @ts-ignore
 navigationContainer.codePushStatusDidChange = (status: codePush.SyncStatus) => {
     switch (status) {

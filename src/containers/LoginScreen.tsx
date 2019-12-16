@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Text, TextInput, View, Alert} from "react-native";
-import {useNavigation} from "react-navigation-hooks";
+import {useNavigation} from "@react-navigation/native";
 import {authService} from "../modules/auth/services";
 
 const LoginScreen = () => {

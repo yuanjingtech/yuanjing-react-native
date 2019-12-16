@@ -3,7 +3,7 @@ import {WebView} from "react-native-webview";
 import {WebViewNavigation} from "react-native-webview/lib/WebViewTypes";
 import {BackHandler, StyleSheet, View} from "react-native";
 import Button from "../../../components/Button";
-import {useNavigation} from "react-navigation-hooks";
+import {useNavigation} from "@react-navigation/native";
 
 
 const SubAppWebView = ({uri}: any) => {

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from "react-native";
 import {Button} from "react-native-material-ui";
-import {useNavigation} from "react-navigation-hooks";
+import {useNavigation} from "@react-navigation/native";
 import MyAdBanner from "../components/MyAdBanner";
 // @ts-ignore
 const isHermes = () => global.HermesInternal != null;

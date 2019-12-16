@@ -1,9 +1,9 @@
 import React from "react";
-import {useNavigation} from "react-navigation-hooks";
 import {StyleSheet, Text, TouchableOpacity} from "react-native";
 import {Icon} from "react-native-material-ui";
 import {subAppService} from "../services";
 import eventEmitter from "../../../common/eventEmitter";
+import {useNavigation} from "@react-navigation/native";
 
 export interface TApp {
     id: any,
