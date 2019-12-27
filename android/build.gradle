@@ -4,7 +4,7 @@ buildscript {
     ext.kotlin_version = '1.3.41'
     ext {
         buildToolsVersion = "28.0.3"
-        minSdkVersion = 16
+        minSdkVersion = 21
         compileSdkVersion = 28
         targetSdkVersion = 28
         supportLibVersion = "28.0.0"
@@ -26,20 +26,20 @@ buildscript {
 allprojects {
     repositories {
         mavenLocal()
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-            url("$rootDir/../node_modules/react-native/android")
+            url "$rootDir/../node_modules/react-native/android"
         }
         maven {
             // Android JSC is installed from npm
             url("$rootDir/../node_modules/jsc-android/dist")
         }
-
-        google()
-        jcenter()
-        maven { url 'https://jitpack.io' }
     }
 }
+
 task clean(type: Delete) {
     delete buildDir
 }

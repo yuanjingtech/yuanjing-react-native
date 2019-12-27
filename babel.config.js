@@ -1,8 +1,11 @@
-module.exports = {
-  plugins: [
-    'react-native-paper/babel',
-    '@babel/plugin-proposal-optional-chaining',
-    '@babel/plugin-proposal-nullish-coalescing-operator',
-  ],
-  presets: ['module:metro-react-native-babel-preset'],
+module.exports = function (api) {
+  api.cache(true);
+  return {
+    plugins: [
+      'react-native-paper/babel',
+      '@babel/plugin-proposal-optional-chaining',
+      '@babel/plugin-proposal-nullish-coalescing-operator',
+    ],
+    presets: ['babel-preset-expo'],
+  };
 };
