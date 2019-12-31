@@ -1,0 +1,3 @@
+[submodule "libs/activities"]
+	path = libs/activities
+	url = git@github.com:yuanjingtech/x-activity-client.git
