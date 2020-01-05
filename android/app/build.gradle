@@ -132,7 +132,7 @@ android {
         applicationId "com.yuanjingtech.yuanjing"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
+        versionCode 4
         versionName "1.4"
         multiDexEnabled = true
     }
