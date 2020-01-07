@@ -18,8 +18,8 @@ default_platform :ios
 platform :ios do
   before_all do
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
-    
-    
+
+
   end
 
   desc "Runs all the tests"
@@ -27,15 +27,34 @@ platform :ios do
     scan
   end
 
+  desc "Build"
+  lane :build do
+    match(type: "development")
+    #cocoapods
+    increment_build_number
+    build_ios_app(
+        export_method: 'development'
+    )
+  end
+
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
-    # match(type: "appstore") # more information: https://codesigning.guide
-    gym(scheme: "yuanjing") # Build your app - more options available
-    pilot
+    match(type: "appstore")
+    # cocoapods
+    # enable_automatic_code_signing
+    # increment_build_number
+    build_ios_app(
+        export_xcargs: "-allowProvisioningUpdates",
+        export_method: 'app-store'
+    )
+    upload_to_testflight
 
     # sh "your_script.sh"
     # You can also use other beta testing services here (run `fastlane actions`)
+    slack(
+        message: "App successfully upload to testflight!"
+    )
   end
 
   desc "Deploy a new version to the App Store"
@@ -52,16 +71,46 @@ platform :ios do
   after_all do |lane|
     # This block is called, only if the executed lane was successful
 
-    # slack(
-    #   message: "Successfully deployed new App Update."
-    # )
+    slack(
+        message: "Successfully deployed new App Update."
+    )
   end
 
   error do |lane, exception|
-    # slack(
-    #   message: exception.message,
-    #   success: false
-    # )
+    slack(
+        message: exception.message,
+        success: false
+    )
+  end
+  lane :beta_firim do
+    # 如果你用 pod install
+    cocoapods
+    # 如果你没有申请adhoc证书，sigh会自动帮你申请，并且添加到Xcode里
+    sigh(adhoc: true)
+    # 以下两个action来自fastlane-plugin-versioning，
+    # 第一个递增 Build，第二个设定Version。
+    # 如果你有多个target，就必须指定target的值，否则它会直接找找到的第一个plist修改
+    # 在这里我建议每一个打的包的Build都要不一样，这样crash了拿到日志，可以对应到ipa上
+    increment_build_number_in_plist(target: [target_name])
+    increment_version_number_in_plist(
+        target: [target_name],
+        version_number: '7.1.3'
+    )
+    # gym用来编译ipa
+    gym(
+        output_directory: './firim',
+        export_options: {
+            method: "ad-hoc", # 这可以不指定
+            thinning: "<none>"
+        }
+    )
+    # 上传ipa到fir.im服务器，在 https://fir.im 获取firim_api_token
+    firim(firim_api_token: ENV['firim_api_token'])
+  end
+  lane :beta_pgyer do
+    build
+    pgyer(api_key: ENV['pgyer_api_key'], user_key: ENV['pgyer_user_key'], password: ENV['pgyer_password'], install_type: "2")
+    slack(message: 'Successfully distributed a new beta build')
   end
 end
 
@@ -69,5 +118,5 @@ end
 # More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
 # All available actions: https://docs.fastlane.tools/actions
 
-# fastlane reports which actions are used. No personal data is recorded. 
+# fastlane reports which actions are used. No personal data is recorded.
 # Learn more at https://github.com/fastlane/fastlane#metrics

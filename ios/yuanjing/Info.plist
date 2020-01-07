@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>8</string>
 	<key>CodePushDeploymentKey</key>
 	<string>FA4piKQXHcwEQ9OfS9my-JPdwxUIUOpgnJXxM</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -94,7 +94,7 @@
     			</dict>
     		</dict>
     	</dict>
-    	<key>NSCalendarsUsageDescription</key>
+	<key>NSCalendarsUsageDescription</key>
     	<string>Allow 远景 to access your calendar</string>
     	<key>NSCameraUsageDescription</key>
     	<string>Allow 远景 to use the camera</string>
@@ -109,7 +109,7 @@
     	<key>NSMicrophoneUsageDescription</key>
     	<string>Allow 远景 to access your microphone</string>
     	<key>NSMotionUsageDescription</key>
-    	<string>Allow 远景 to access your device's accelerometer</string>
+    	<string>Allow 远景 to access your device&#39;s accelerometer</string>
     	<key>NSPhotoLibraryAddUsageDescription</key>
     	<string>Give 远景 periences permission to save photos</string>
     	<key>NSPhotoLibraryUsageDescription</key>
