@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View} from "react-native";
+import {SafeAreaView, StyleSheet, Text, View} from "react-native";
 import MyAdBanner from "../components/MyAdBanner";
 import SubAppWebView from "../modules/subapp/components/SubAppWebView";
 import {subAppService} from "../modules/subapp/services";
 import eventEmitter from "../common/eventEmitter";
 import {useNavigation} from "@react-navigation/native";
+import {createStackNavigator} from "@react-navigation/stack";
+import {MainScreen} from "./MainScreen";
+import {useTheme} from "react-native-paper";
 
 const RecentAppEmpty = () => {
     return <View style={styles.container}>
@@ -41,7 +44,8 @@ const TabRecentScreen = () => {
         <View style={styles.container}>
             <MyAdBanner/>
             {uri ? <SubAppWebView uri={uri}/> : <RecentAppEmpty/>}
-        </View>);
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({
@@ -49,4 +53,24 @@ const styles = StyleSheet.create({
         flex: 1,
     },
 });
-export default TabRecentScreen;
+const Stack = createStackNavigator();
+const RecentTabContainer = () => {
+    const theme = useTheme();
+    return <Stack.Navigator initialRouteName="TabRecentScreen">
+        <Stack.Screen
+            name="TabRecentScreen"
+            component={TabRecentScreen}
+            options={{
+                title: "最近",
+                headerStyle: {
+                    backgroundColor: theme.colors.primary,
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                },
+            }}
+        />
+    </Stack.Navigator>;
+};
+export default RecentTabContainer;

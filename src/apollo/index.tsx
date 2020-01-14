@@ -8,19 +8,24 @@ import {ApolloLink} from 'apollo-link';
 import {ApolloProvider} from '@apollo/react-hooks';
 import AsyncStorage from '@react-native-community/async-storage';
 import {setContext} from 'apollo-link-context';
+import {authService} from "../modules/auth/services";
 
 const httpLink = new HttpLink({
     uri: `${config.API_URL}/graphql`,
 });
 const authLink = setContext(async (_, {headers}) => {
-    // get the authentication token from local storage if it exists
-    const authorization = await AsyncStorage.getItem('@authorization');
+
+// get the authentication token from local storage if it exists
+    const authorization = await authService.getAuthorization();
     console.log(`authorization:${authorization}`);
-    return {
-        headers: {
+    let h = {...headers};
+    if (authorization)
+        h = {
             ...headers,
             authorization: authorization || "",
-        }
+        };
+    return {
+        headers: h
     }
 });
 const link = ApolloLink.from([

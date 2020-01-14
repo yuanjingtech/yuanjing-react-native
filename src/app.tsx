@@ -2,23 +2,24 @@ import React, {useEffect} from 'react'
 import {createStackNavigator} from '@react-navigation/stack';
 import {createCompatNavigatorFactory} from '@react-navigation/compat';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import {HomeScreen} from "./containers/HomeScreen";
-import {MainScreen} from "./containers/MainScreen";
+import SubAppListTabContainer from "./containers/HomeScreen";
+import MainTabContainer from "./containers/MainScreen";
 import ScrollableTabView from "react-native-scrollable-tab-view";
 import {MyWebView} from "./components/MyWebView";
 // import Conversation from "./containers/Conversation";
-import LoginScreen from "./containers/LoginScreen";
+import LoginScreen from "./modules/auth/containers/LoginScreen";
 import codePush, {CodePushOptions, DownloadProgress} from "react-native-code-push";
 import {Icon} from "react-native-material-ui";
 import UpdateScreen from "./containers/UpdateScreen";
-import DevelopScreen from "./containers/DevelopScreen";
 import TestAdScreen from "./containers/TestAdContainer";
 import WelcomeScreen from "./containers/WelcomeScreen";
 import GetCoinScreen from "./containers/GetCoinScreen";
 import CoinViewRewardAd from "./modules/coin/containers/CoinViewRewardAd";
-import TabRecentScreen from "./containers/TabRecentScreen";
 import {NavigationNativeContainer} from "@react-navigation/native";
-import {useTheme} from '@react-navigation/native';
+import ActivityListTabContainer from "./modules/activities/containers/ActivityListContainer";
+import RecentTabContainer from "./containers/TabRecentScreen";
+import {useTheme} from "react-native-paper";
+import DevelopTabContainer from "./modules/develop/containers/DevelopScreen";
 
 if (__DEV__) {
     import('./supports/ReactotronConfig').then(() => console.log('Reactotron Configured'))
@@ -44,7 +45,7 @@ const TabNavigator = () => {
     return <Tab.Navigator
         initialRouteName={"Recent"}
         activeColor={colors.primary}
-        inactiveColor={colors.border}
+        inactiveColor={colors.accent}
         barStyle={{backgroundColor: colors.background}}
         screenOptions={({route: {name: routeName}}) => ({
             navigationOptions: {
@@ -80,11 +81,12 @@ const TabNavigator = () => {
                 inactiveTintColor: 'gray',
             }
         })}>
-        <Tab.Screen name="Recent" component={TabRecentScreen} options={{title: "最近"}}/>
-        <Tab.Screen name="Home" component={HomeScreen} options={{title: "主页"}}/>
-        <Tab.Screen name="优惠" component={MyWebView} options={{title: "优惠"}} initialParams={{uri: 'http://youhui.yuanjingtech.com/'}}/>
+        <Tab.Screen name="Recent" component={RecentTabContainer} options={{title: "最近"}}/>
+        <Tab.Screen name="Home" component={SubAppListTabContainer} options={{title: "应用列表"}}/>
+        <Tab.Screen name="优惠" component={MainTabContainer} options={{title: "优惠"}} initialParams={{uri: 'http://youhui.yuanjingtech.com/'}}/>
         <Tab.Screen name="GetCoin" component={GetCoinScreen} options={{title: "金币"}}/>
-        <Tab.Screen name="Develop" component={DevelopScreen} options={{title: "开发"}}/>
+        <Tab.Screen name="Activity" component={ActivityListTabContainer} options={{title: "活动"}}/>
+        <Tab.Screen name="Develop" component={DevelopTabContainer} options={{title: "开发"}}/>
     </Tab.Navigator>;
 };
 TabNavigator.navigationOptions = () => ({headerLeft: null});
@@ -100,6 +102,7 @@ const AppNavigator = createCompatNavigatorFactory(createStackNavigator)({
     },
     {
         initialRouteName: 'Welcome', // 默认登录页,
+        headerMode: 'none',
     }
 );
 //

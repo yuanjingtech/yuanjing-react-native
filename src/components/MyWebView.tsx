@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, View} from 'react-native';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
 import MyAdBanner from "./MyAdBanner";
 import SubAppWebView from "../modules/subapp/components/SubAppWebView";
 import {useRoute} from "@react-navigation/native";
@@ -11,10 +11,10 @@ export const MyWebView = () => {
     const uri = route.params?.uri ?? "";
     navigation.setOptions({title: route.params?.title ?? ""});
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <MyAdBanner/>
             <SubAppWebView uri={uri}/>
-        </View>
+        </SafeAreaView>
     );
 };
 

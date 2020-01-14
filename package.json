@@ -1,7 +1,7 @@
 {
-  "name": "yuanjing",
-  "version": "1.4",
-  "private": true,
+  "name": "yuanjing-react-native",
+  "version": "1.4.1",
+   "private": true,
   "scripts": {
     "postinstall": "jetify",
     "web": "expo start --web",

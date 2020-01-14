@@ -50,5 +50,4 @@ const WelcomeScreen = () => {
         </View>
     );
 };
-
 export default WelcomeScreen;

@@ -1,6 +1,7 @@
 import {client} from "../../../apollo";
 import gql from "graphql-tag";
 import AsyncStorage from '@react-native-community/async-storage';
+import eventEmitter from "../../../common/eventEmitter";
 
 export class AuthService {
     async login(username: String, password: String): Promise<any> {
@@ -22,11 +23,27 @@ export class AuthService {
             }
             const authorization = data.auth.createToken;
             await AsyncStorage.setItem("@authorization", authorization);
-            return {username, authorization}
+            let user = {username, authorization};
+            eventEmitter.emit("auth", {action: 'login'});
+            return user
         } catch (e) {
             console.error(e);
             console.log(e.message, e);
             return null;
         }
+    }
+
+    async logout() {
+        await AsyncStorage.removeItem("@authorization");
+        eventEmitter.emit("auth", {action: 'logout'});
+    }
+
+    async isLogin() {
+        const authorization = await this.getAuthorization();
+        return !authorization && authorization != '';
+    }
+
+    async getAuthorization() {
+        return await AsyncStorage.getItem('@authorization');
     }
 }
