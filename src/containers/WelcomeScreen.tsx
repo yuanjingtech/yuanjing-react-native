@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigation} from "@react-navigation/native";
-import {View, StyleSheet, Text} from "react-native";
+import {View, StyleSheet, Text, SafeAreaView} from "react-native";
 import MyAdBanner from "../components/MyAdBanner";
 import {Button} from "react-native-material-ui";
 
@@ -41,13 +41,13 @@ const WelcomeScreen = () => {
         run();
     }, []);
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <MyAdBanner/>
             <View style={styles.content_container}>
                 <Text>Loading</Text>
             </View>
             {canSkip ? <View style={styles.button_skip}><Button onPress={doEnter} text={"跳过"}/></View> : null}
-        </View>
+        </SafeAreaView>
     );
 };
 export default WelcomeScreen;
