@@ -7,6 +7,8 @@ import {createStackNavigator} from "@react-navigation/stack";
 import {useTheme} from "react-native-paper";
 import {authService} from "../../auth/services";
 import eventEmitter, {useDefaultEventEmitter} from "../../../common/eventEmitter";
+import codePush from "react-native-code-push";
+
 // @ts-ignore
 const isHermes = () => global.HermesInternal != null;
 const styles = StyleSheet.create({
@@ -38,6 +40,14 @@ const DevelopScreen = () => {
             // noinspection JSIgnoredPromiseFromCall
             run();
         }, []);
+        const [metadata, setMetadata] = useState<any | null>(null);
+        useEffect(() => {
+            const run = async () => {
+                setMetadata(await codePush.getUpdateMetadata());
+            };
+            // noinspection JSIgnoredPromiseFromCall
+            run();
+        }, []);
         return (
             <View>
                 <MyAdBanner/>
@@ -46,6 +56,7 @@ const DevelopScreen = () => {
                 <Button text={"Test Ad"} onPress={() => navigate("TestAd")}/>
                 <Button text={"Update"} onPress={() => navigate("Update", {navigationOptions: {title: "Update"}})}/>
                 {login ? <Button text={"Logout"} onPress={() => authService.logout()}/> : <Button text={"Login"} onPress={() => navigate("Login", {navigationOptions: {title: "Login"}})}/>}
+                {metadata ? <Text>{metadata.version} {metadata.label} {metadata.appVersion} {metadata.description}</Text> : null}
             </View>
         );
     }
