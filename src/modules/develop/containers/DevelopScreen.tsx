@@ -25,12 +25,11 @@ const DevelopScreen = () => {
             });
             return subscription.remove()
         }, []);
-        useDefaultEventEmitter("auth", ({action}: any) => {
-            if (action == "login") {
-                setLogin(true)
-            } else {
-                setLogin(false)
-            }
+        useDefaultEventEmitter("auth", async ({action}: any) => {
+            const isLogin = await authService.isLogin();
+            setLogin(isLogin);
+            const user = await authService.getUser();
+            setUser(user);
         });
         useEffect(() => {
             const run = async () => {
@@ -48,14 +47,16 @@ const DevelopScreen = () => {
             // noinspection JSIgnoredPromiseFromCall
             run();
         }, []);
+        const [user, setUser] = useState(null);
         return (
             <View>
                 <MyAdBanner/>
+                {user != null ? <Text>{user.username}</Text> : null}
+                {login ? <Button text={"Logout"} onPress={() => authService.logout()}/> : <Button text={"Login"} onPress={() => navigate("Login", {navigationOptions: {title: "Login"}})}/>}
                 <Text>Hermes:{isHermes() ? "true" : "false"}</Text>
                 <Button text={"Welcome"} onPress={() => navigate("Welcome")}/>
                 <Button text={"Test Ad"} onPress={() => navigate("TestAd")}/>
                 <Button text={"Update"} onPress={() => navigate("Update", {navigationOptions: {title: "Update"}})}/>
-                {login ? <Button text={"Logout"} onPress={() => authService.logout()}/> : <Button text={"Login"} onPress={() => navigate("Login", {navigationOptions: {title: "Login"}})}/>}
                 {metadata ? <Text>{metadata.version} {metadata.label} {metadata.appVersion} {metadata.description}</Text> : null}
             </View>
         );

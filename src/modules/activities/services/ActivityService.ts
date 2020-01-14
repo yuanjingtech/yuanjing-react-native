@@ -29,7 +29,7 @@ class ActivityService {
         }
     }
 
-    async create(param: { code: string; type: string; title: string; url: string }) {
+    async create(param: { code: string; type: string; title: string; url: string }): Promise<any | null> {
         try {
             const {data, errors} = await client.mutate({
                 mutation: gql`mutation activity_create($type:String!,$title:String,$code:String,$url:String) {

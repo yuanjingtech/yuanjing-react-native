@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {FlatList, RefreshControl, Text} from "react-native";
 import Activity from "../components/Activity";
-import activityService from "../services/ActivityService";
 import ActivityCreateContainer from "./ActivityCreateContainer";
 import {createStackNavigator} from "@react-navigation/stack";
 import {useNavigation} from "@react-navigation/native";
@@ -10,6 +9,7 @@ import {Button, useTheme} from "react-native-paper";
 import {authService} from "../../auth/services";
 import {useQuery} from "@apollo/react-hooks";
 import gql from "graphql-tag";
+import {useDefaultEventEmitter} from "../../../common/eventEmitter";
 
 const QUERY = gql`{
     viewer{
@@ -34,6 +34,9 @@ const ActivityListContainer = () => {
         // noinspection JSIgnoredPromiseFromCall
         refetch();
     }, []);
+    useDefaultEventEmitter("activity", async () => {
+        await refetch();
+    });
     if (loading) return <Text>Loading ...</Text>;
     if (error) return <Text>{`Error! ${error.message}`}</Text>;
     return (<>

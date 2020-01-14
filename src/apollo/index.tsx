@@ -6,9 +6,9 @@ import {HttpLink} from 'apollo-link-http';
 import {onError} from 'apollo-link-error';
 import {ApolloLink} from 'apollo-link';
 import {ApolloProvider} from '@apollo/react-hooks';
-import AsyncStorage from '@react-native-community/async-storage';
 import {setContext} from 'apollo-link-context';
 import {authService} from "../modules/auth/services";
+import {useDefaultEventEmitter} from "../common/eventEmitter";
 
 const httpLink = new HttpLink({
     uri: `${config.API_URL}/graphql`,
@@ -22,7 +22,7 @@ const authLink = setContext(async (_, {headers}) => {
     if (authorization)
         h = {
             ...headers,
-            authorization: authorization || "",
+            Authorization: authorization,
         };
     return {
         headers: h
@@ -46,8 +46,11 @@ export const client = new ApolloClient({
     link: link
 });
 
-export const MyApolloProvider = (props: any) => (
-    <ApolloProvider client={client}>
-        {props.children}
-    </ApolloProvider>
-);
+export const MyApolloProvider = (props: any) => {
+    useDefaultEventEmitter('auth', () => client.resetStore());
+    return (
+        <ApolloProvider client={client}>
+            {props.children}
+        </ApolloProvider>
+    );
+};
